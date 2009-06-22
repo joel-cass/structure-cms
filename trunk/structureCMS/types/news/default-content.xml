@@ -1,0 +1,19 @@
+<content type="content">
+	<fields>
+		<field name="Title"></field>
+		<field name="Date Created"></field>
+		<field name="Date Published"></field>
+		<field name="Description"></field>
+		<field name="Keywords"></field>
+		<field name="Content"></field>
+	</fields>
+	<options>
+		<layout>default</layout>
+		<placeholders>
+			<placeholder name="main">
+				<view path="main/title_and_text.php" />
+			</placeholder>
+		</placeholders>
+		<active>1</active>
+	</options>
+</content>

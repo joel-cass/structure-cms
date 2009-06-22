@@ -1,0 +1,32 @@
+<type>
+	<name>Content</name>
+	<fields>
+		<field name="Title">
+			<type>string</type>
+			<description>Title of the page</description>
+		</field>
+		<field name="Description">
+			<type>text</type>
+			<description>Description of page</description>
+		</field>
+		<field name="Large Image">
+			<type>image</type>
+			<description>Large image for details view</description>
+			<options>
+				<option name="path">/gallery-images</option>
+				<option name="conflict">make-unique</option>
+			</options>
+		</field>
+		<field name="Thumbnail Image">
+			<type>image</type>
+			<description>Thumbnail image for listing view</description>
+			<options>
+				<option name="path">/gallery-images/thumb</option>
+				<option name="conflict">make-unique</option>
+				<option name="max-width">150</option>
+				<option name="max-height">150</option>
+				<option name="source-field">Large Image</option>
+			</options>
+		</field>
+	</fields>
+</type>
