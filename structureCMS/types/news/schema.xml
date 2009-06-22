@@ -1,0 +1,45 @@
+<type>
+	<name>News</name>
+	<fields>
+		<field name="Title">
+			<type>string</type>
+			<description>Title of the page</description>
+		</field>
+		<field name="Date Created">
+			<type>date</type>
+			<description>Date the item was created</description>
+		</field>
+		<field name="Date Published">
+			<type>date</type>
+			<description>Date the item is to be published</description>
+		</field>
+		<field name="Description">
+			<type>text</type>
+			<description>Description of page</description>
+		</field>
+		<field name="Keywords">
+			<type>string</type>
+			<description>Keywords for search engines etc</description>
+		</field>
+		<field name="Content">
+			<type>html</type>
+			<description>Content of page</description>
+		</field>
+		<field name="File">
+			<type>file</type>
+			<description>Test file</description>
+			<options>
+				<option name="path">/news-files</option>
+				<option name="conflict">make-unique</option>
+			</options>
+		</field>
+		<field name="Image">
+			<type>image</type>
+			<description>Test image</description>
+			<options>
+				<option name="path">/news-images</option>
+				<option name="conflict">make-unique</option>
+			</options>
+		</field>
+	</fields>
+</type>

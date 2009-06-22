@@ -1,0 +1,29 @@
+<type>
+	<name>Content</name>
+	<fields>
+		<field name="Title">
+			<type>string</type>
+			<description>Title of the page</description>
+		</field>
+		<field name="Email">
+			<type>string</type>
+			<description>Email Address</description>
+		</field>
+		<field name="Description">
+			<type>text</type>
+			<description>Description of page</description>
+		</field>
+		<field name="Keywords">
+			<type>string</type>
+			<description>Keywords for search engines etc</description>
+		</field>
+		<field name="Content">
+			<type>html</type>
+			<description>Content of page</description>
+		</field>
+		<field name="Thank you Content">
+			<type>html</type>
+			<description>Thank You Content</description>
+		</field>
+	</fields>
+</type>
