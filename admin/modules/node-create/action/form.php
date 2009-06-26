@@ -1,6 +1,6 @@
 <?php
-include_once (getRootPath() . "/structureCMS/classes/core/Page.php");
-include_once (getRootPath() . "/structureCMS/classes/core/ContentType.php");
+include_once (getRootPath() . "/classes/core/Page.php");
+include_once (getRootPath() . "/classes/core/ContentType.php");
 
 if ( array_key_exists("node", $_REQUEST) ) {
 	$strNode = stripslashes( $_REQUEST["node"] );

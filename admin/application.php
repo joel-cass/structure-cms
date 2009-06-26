@@ -6,8 +6,8 @@ if (phpversion() < "5.0") {
 }
 
 // INCLUDE SHARED DEPENDENCIES
-require_once "../structureCMS/includes/paths.php";
-require_once "../structureCMS/classes/helpers/AdminHelper.php";
+require_once "../classes/includes/paths.php";
+require_once "../classes/helpers/AdminHelper.php";
 require_once "modules/controller.php";
 
 // AUTHENTICATE USER

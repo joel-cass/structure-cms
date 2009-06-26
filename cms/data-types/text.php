@@ -1,25 +1,14 @@
 <?php
+require_once getRootPath() . "/classes/core/DataType.php";
 
-// CHECK PHP VERSION
-if (phpversion() < "5.0") {
-	die("This project is only supported in PHP 5 and above.");
+class type_text extends DataType {	
+
+	public function edit ($name, $id, $value) {
+		$strReturn = "<textarea name=\"$name\" id=\"$id\">$value</textarea>";
+		return $strReturn;
+	}
+	
 }
-
-require_once "classes/includes/paths.php";
-
-require_once "classes/core/Page.php";
-require_once "classes/helpers/UrlHelper.php";
-
-if (!Page::isPage("/home")) {
-	include "installer.php";
-}
-
-global $PAGE;
-global $PAGE_HANDLE;
-
-$PAGE_HANDLE = UrlHelper::getCurrentPage("/home");
-$PAGE = new Page($PAGE_HANDLE);
-$PAGE->render();
 
 /*  ******* LICENSE ******* 
  *  

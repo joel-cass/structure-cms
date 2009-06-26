@@ -1,8 +1,8 @@
 <?php
 
-include_once "../../structureCMS/includes/paths.php";
-include_once getRootPath() . "/structureCMS/classes/core/Page.php";
-include_once getRootPath() . "/structureCMS/classes/core/PageOrder.php";
+include_once "../../classes/includes/paths.php";
+include_once getRootPath() . "/classes/core/Page.php";
+include_once getRootPath() . "/classes/core/PageOrder.php";
 
 $node = "";
 if ( array_key_exists("node", $_REQUEST) ) {

@@ -1,0 +1,29 @@
+<type>
+	<name>RSS</name>
+	<fields>
+		<field name="Title">
+			<type>string</type>
+			<description>Title of the feed</description>
+		</field>
+		<field name="Description">
+			<type>string</type>
+			<description>Description of feed</description>
+		</field>
+		<field name="Language">
+			<type>string</type>
+			<description>Language of the feed</description>
+		</field>
+		<field name="Email">
+			<type>string</type>
+			<description>Contact email for feed</description>
+		</field>
+		<field name="Parent Node">
+			<type>link</type>
+			<description>Node to render items below</description>
+		</field>
+		<field name="Content Type">
+			<type>string</type>
+			<description>Content type to filter items</description>
+		</field>
+	</fields>
+</type>

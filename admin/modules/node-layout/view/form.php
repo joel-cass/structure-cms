@@ -1,4 +1,4 @@
-<?php include_once(getRootPath() . "/structureCMS/classes/controls/ListBuilder.php"); ?>
+<?php include_once(getRootPath() . "/classes/controls/ListBuilder.php"); ?>
 
 <?php ListBuilder::init(); ?>
 
