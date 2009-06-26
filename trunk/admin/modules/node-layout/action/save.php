@@ -1,6 +1,6 @@
 <?php
-include_once (getRootPath() . "/structureCMS/classes/core/Page.php");
-include_once (getRootPath() . "/structureCMS/classes/core/Layout.php");
+include_once (getRootPath() . "/classes/core/Page.php");
+include_once (getRootPath() . "/classes/core/Layout.php");
 
 $strNode = stripslashes( $_REQUEST["node"] );
 $objPage = new Page($strNode);

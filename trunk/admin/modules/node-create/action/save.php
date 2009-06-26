@@ -1,5 +1,5 @@
 <?php
-include_once (getRootPath() . "/structureCMS/classes/core/Page.php");
+include_once (getRootPath() . "/classes/core/Page.php");
 
 $strNode = stripslashes( $_REQUEST["node"] );
 $strName = stripslashes( $_REQUEST["name"] );

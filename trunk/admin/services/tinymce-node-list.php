@@ -1,8 +1,8 @@
 <?php 
 header("Content-type: text/javascript");
 
-include_once "../../structureCMS/includes/paths.php";
-include_once getRootPath() . "/structureCMS/classes/core/Page.php";
+include_once "../../classes/includes/paths.php";
+include_once getRootPath() . "/classes/core/Page.php";
 
 function getNodeList($path, $aryReturn = array()) {
 	$aryPages = Page::getPages($path, false);

@@ -1,5 +1,5 @@
 <?php 
-require_once "structureCMS/classes/core/Page.php";
+require_once "classes/core/Page.php";
 
 if (!is_dir(getPath(""))) {
 	mkdir(getPath(""));

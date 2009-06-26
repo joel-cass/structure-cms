@@ -1,6 +1,6 @@
 <?php
 
-require_once getRootPath() . "/structureCMS/classes/core/Page.php";
+require_once getRootPath() . "/classes/core/Page.php";
 
 if ( array_key_exists("node", $_REQUEST) ) {
 	$strNode = stripslashes( $_REQUEST["node"] );

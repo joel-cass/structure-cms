@@ -1,0 +1,17 @@
+<content type="content">
+	<fields>
+		<field name="Title"></field>
+		<field name="Description"></field>
+		<field name="Language">en</field>
+		<field name="Email"></field>
+	</fields>
+	<options>
+		<layout>rss</layout>
+		<placeholders>
+			<placeholder name="rss">
+				<view path="rss/render-items-by-settings.php" />
+			</placeholder>
+		</placeholders>
+      <active>1</active>
+	</options>
+</content>

@@ -1,6 +1,6 @@
 <?php 
 
-require_once getRootPath() . "/structureCMS/classes/core/Page.php";
+require_once getRootPath() . "/classes/core/Page.php";
 
 $strNode = $_REQUEST["node"];
 

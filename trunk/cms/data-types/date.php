@@ -1,25 +1,29 @@
 <?php
+require_once getRootPath() . "/classes/core/DataType.php";
 
-// CHECK PHP VERSION
-if (phpversion() < "5.0") {
-	die("This project is only supported in PHP 5 and above.");
+class type_date extends DataType {
+
+	// show input field for display in form
+	public function edit ($name, $id, $value) {
+		return "<input type=\"text\" name=\"$name\" id=\"$id\" value=\"$value\"> (dd/mm/yy)";
+	}
+	
+	// show value for display.use in site
+	public function render ($value) {
+		return $value;
+	}
+	
+	// process value / form / files and return preferred value
+	public function process ($name, $value) {
+		return $value;
+	}
+	
+	// validate - return true/false to indicate field validity
+	public function validate ($value) {
+		return true;
+	}
+	
 }
-
-require_once "classes/includes/paths.php";
-
-require_once "classes/core/Page.php";
-require_once "classes/helpers/UrlHelper.php";
-
-if (!Page::isPage("/home")) {
-	include "installer.php";
-}
-
-global $PAGE;
-global $PAGE_HANDLE;
-
-$PAGE_HANDLE = UrlHelper::getCurrentPage("/home");
-$PAGE = new Page($PAGE_HANDLE);
-$PAGE->render();
 
 /*  ******* LICENSE ******* 
  *  
