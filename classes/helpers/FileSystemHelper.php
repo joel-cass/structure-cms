@@ -56,7 +56,7 @@ class FileSystemHelper {
 	}
 	
 	
-	public static function GetLatestPages($root, $path="") {
+	public static function GetRecentlyModified ($root, $path = "") {
 		$aryDirs = FileSystemHelper::GetAllDirectories($root, $path);
 		$aryPages = array();
 		

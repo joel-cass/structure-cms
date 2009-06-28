@@ -1,6 +1,6 @@
 <?php
 require_once (getRootPath() . "/classes/core/Page.php");
-require_once (getRootPath() . "/classes/core/FileSystemHelper.php");
+require_once (getRootPath() . "/classes/helpers/FileSystemHelper.php");
 
 class PageHelper {
 	
@@ -44,11 +44,11 @@ class PageHelper {
 	}
 	
 	
-	public static function getLatestPages ($below, $maxrows = null, $contentType = "") {
+	public static function getRecentlyModified ($below, $maxrows = null, $contentType = "", $dateEnd = null) {
 		if ($dateEnd == null) {
 			$dateEnd = localtime();
 		}
-		$aryFiles = FileSystemHelper::GetLatestPages($below, "");
+		$aryFiles = FileSystemHelper::getRecentlyModified($below);
 		$aryPages = array();
 		foreach ($aryFiles as $p=>$d) {
 			if ($maxrows == null || count($aryFiles) < $maxrows) {
@@ -58,6 +58,7 @@ class PageHelper {
 				}
 			}
 		}
+		return $aryPages;
 	}
 	
 }

@@ -3,6 +3,7 @@ require_once getRootPath() . "/classes/helpers/PageHelper.php";
 
 $strParentNode = $PAGE->path;
 $strContentType = "";
+$numItems = 20;
 
 if ($PAGE->getField("Parent Node") != "") {
 	$strParentNode = $PAGE->getField("Parent Node")->getValue();
@@ -10,9 +11,11 @@ if ($PAGE->getField("Parent Node") != "") {
 if ($PAGE->getField("Content Type") != "") {
 	$strContentType = $PAGE->getField("Content Type")->getValue();
 }
+if ($PAGE->getField("Number of Items") != "") {
+	$numItems = $PAGE->getField("Number of Items")->getValue();
+}
 
 $children = PageHelper::getDescendants($strParentNode, $strContentType);
-
 
 foreach ($children as $child) {
 	$aryFileInfo = $child->getFileInfo();
