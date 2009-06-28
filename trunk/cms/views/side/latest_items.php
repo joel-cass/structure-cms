@@ -3,7 +3,7 @@
 <?php 
 $root = getPath("");
 $path = $PAGE->path;
-$paths = FileSystemHelper::GetLatestPages($root, $path); ?>
+$paths = FileSystemHelper::GetRecentlyModified($root, $path); ?>
 
 
 <?php $i = 0; ?>

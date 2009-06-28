@@ -9,7 +9,7 @@
 		<layout>rss</layout>
 		<placeholders>
 			<placeholder name="rss">
-				<view path="rss/render-items-by-settings.php" />
+				<view path="rss/latest-items.php" />
 			</placeholder>
 		</placeholders>
       <active>1</active>
