@@ -57,9 +57,11 @@ class Page {
 
 
 	public function setName ($name) {
-		$strPath = listDeleteAt($this->path, listLen($this->path, "/"), "/");
-		$strPath = listAppend($strPath, $name, "/");
+		$strParentPath = listDeleteAt($this->path, listLen($this->path, "/"), "/");
+		$strOldName = $this->getName();
+		$strPath = listAppend($strParentPath, $name, "/");
 		rename(getPath($this->path), getPath($strPath));
+		PageOrder::rename($strParentPath, $strOldName, $name);
 		$this->path = $strPath;
 	}
 

@@ -103,6 +103,15 @@ class PageOrder {
 		XmlHelper::setXML( getPath($this->path) . "/page-order.xml", $this->xml );
 	}
 
+	/* STATIC METHODS */
+	
+	static function rename ($parent_path, $oldName, $newName) {
+		$objPageOrder = new PageOrder($parent_path);
+		$node = $objPageOrder->getNode($oldName);
+		$node->nodeValue = $newName;
+		$objPageOrder->save();
+	}
+	
 	/* PRIVATE METHODS */
 	
 	private function reset () {
