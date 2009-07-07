@@ -12,6 +12,7 @@
 		<li><a href="node-layout.php?node=<?php echo $strNode?>">Edit page layout</a></li>
 		<li><a href="node-create.php?node=<?php echo $strNode?>">Create new page</a></li>
 		<li><a href="node-delete.php?node=<?php echo $strNode?>">Delete page</a></li>
+		<li><a href="<?php echo $objPage->getURL()?>" target="preview">View page</a></li>
 	</ul>
 	<div class="clear-hidden"></div>
 	
