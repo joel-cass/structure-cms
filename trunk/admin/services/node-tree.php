@@ -51,7 +51,10 @@ if ( $blnAjax ) {
 		<script src="../lib/node-tree.js" type="text/javascript"></script>
 	</head>
 	<body>
-	<ul id="<?php echo $strParentID;?>" class="tree">
+	<ul class="tree">
+		<li>
+			<a href="#" id="lnkRoot">[root]</a>
+			<ul id="<?php echo $strParentID;?>">
 	<?php
 }
 
@@ -83,6 +86,8 @@ showPages($node);
 
 if ( $blnAjax ) {
 	?>
+			</ul>
+		</li>
 	</ul>
 	<ul id="actionsMenu" class="contextMenu">
 	    <li class="edit">
@@ -104,13 +109,24 @@ if ( $blnAjax ) {
 	        <a href="#down">Move Down</a>
 	    </li>
 	</ul>
+	<ul id="bodyActionsMenu" class="contextMenu">
+	    <li class="create">
+	        <a href="#create">Create</a>
+	    </li>
+	</ul>
 	<script language="Javascript">
 	<!-- 
 	$(document).ready( function() {
-		$("#<?php echo $strParentID;?> A").contextMenu(
-			{ menu: "actionsMenu" },
+		// set default on body
+		$("#lnkRoot").contextMenu(
+			{ menu: "bodyActionsMenu" },
 			contextMenu_select
 		);
+		// set specific on pages
+		$("#<?php echo $strParentID;?> A").contextMenu(
+				{ menu: "actionsMenu" },
+				contextMenu_select
+			);
 	});
 	// -->
 	</script>
