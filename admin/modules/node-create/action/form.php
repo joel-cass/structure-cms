@@ -8,12 +8,20 @@ if ( array_key_exists("node", $_REQUEST) ) {
 	$strNode = "/home";
 }
 
-$objPage = new Page($strNode);
-$objType = $objPage->getContentTypeObject();
+if ($strNode == "") {
+	$strName = "[root]";
+} else {
+	$strName = $strNode;
+}
 
-$strType = $objType->name;
-$strName = $objPage->getName();
-
+if (Page::isPage($strNode)) {
+	$objPage = new Page($strNode);
+	$objType = $objPage->getContentTypeObject();
+	$strType = $objType->name;
+} else {
+	$strType = "content";
+}
+	
 $aryTypes = ContentType::getContentTypes();
 
 ?>
