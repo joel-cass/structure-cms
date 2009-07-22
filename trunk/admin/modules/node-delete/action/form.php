@@ -5,4 +5,8 @@ if ( array_key_exists("node", $_REQUEST) ) {
 	$strNode = "/home";
 }
 
+if ($strNode == "/home") {
+	$mode = "accessdenied";
+}
+
 ?>
