@@ -112,6 +112,18 @@ function getContentTypePath ($type) {
 }
 
 
+function getUploadPath () {
+	global $UPLOAD_FOLDER;
+	return getRootPath() . $UPLOAD_FOLDER;
+}
+
+
+function getUploadURL () {
+	global $UPLOAD_FOLDER;
+	return getRootURL() . $UPLOAD_FOLDER;
+}
+
+
 /*  ******* LICENSE ******* 
  *  
  *  Copyright 2009 Joel Cass 
