@@ -14,6 +14,7 @@ $DATA_TYPE_FOLDER = "/cms/data-types/";
 
 $CONTENT_TYPE_FOLDER = "/cms/types/";
 
+$UPLOAD_FOLDER = "/upload/";
 
 /*  ******* LICENSE ******* 
  *  
