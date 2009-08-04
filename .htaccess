@@ -1,0 +1,3 @@
+# Image URL Rewriting
+RewriteEngine On
+RewriteRule ^(.*\.(png|gif|jpeg|jpg))\?(([wh]=[0-9]*[&]?)*) /StructureCMS/image.php?path=$1&$2
