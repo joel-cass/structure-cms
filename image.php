@@ -78,6 +78,7 @@ switch ($ext) {
 imageDestroy($img);
 imageDestroy($imgNew);
 
+// function from docos to convert short-hand notation to bytes
 function imageresize_return_bytes($val) {
     $val = trim($val);
     $last = strtolower($val[strlen($val)-1]);
