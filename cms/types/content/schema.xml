@@ -17,5 +17,12 @@
 			<type>html</type>
 			<description>Content of page</description>
 		</field>
+		<field name="Listing Image">
+			<type>image</type>
+			<description>Image to appear in listing</description>
+			<options>
+				<option name="path">/upload/</option>
+			</options>
+		</field>
 	</fields>
 </type>

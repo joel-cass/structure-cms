@@ -14,15 +14,27 @@ if ($path == null) {
 	exit();
 }
 
-$ext = preg_replace("/^.*\./","",$path);
+if ($width == null && $height == null) {
+	header("location", $path);
+}
+
+$ext = strToLower(preg_replace("/^.*\./","",$path));
 
 $image_path = realpath($path);
+
+if (!file_exists($image_path)) {
+	header("location", $path);
+	exit();
+}
 
 switch ($ext) {
 	case "gif" :
 		$img = imageCreateFromGif($image_path);
 		break;
-	case "jpeg" || "jpg" :
+	case "jpg" :
+		$img = imageCreateFromJpeg($image_path);
+		break;
+	case "jpeg" :
 		$img = imageCreateFromJpeg($image_path);
 		break;
 	case "png" :
@@ -57,7 +69,6 @@ if ($img == null) {
 		$imgNew = imageCreateTrueColor($image_width, $image_height);
 		imagecopyresampled  ( $imgNew, $img, 0, 0, 0, 0, $image_width, $image_height, imageSX($img), imageSY($img) );
 	}
-	
 }
 
 switch ($ext) {
@@ -65,7 +76,11 @@ switch ($ext) {
 		header('Content-type: image/gif');
 		imageGif($imgNew);
 		break;
-	case "jpeg" || "jpg" :
+	case "jpg" :
+		header('Content-type: image/jpeg');
+		imageJpeg($imgNew);
+		break;
+	case "jpeg" :
 		header('Content-type: image/jpeg');
 		imageJpeg($imgNew);
 		break;
