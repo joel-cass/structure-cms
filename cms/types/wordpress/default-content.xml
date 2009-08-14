@@ -1,0 +1,14 @@
+<content type="content">
+	<fields>
+		<field name="path">wp/</field>
+	</fields>
+	<options>
+		<layout>rss</layout>
+		<placeholders>
+			<placeholder name="main">
+				<view path="main/wordpress.php" />
+			</placeholder>
+		</placeholders>
+      <active>1</active>
+	</options>
+</content>
