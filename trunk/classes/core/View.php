@@ -16,14 +16,15 @@ class View {
 	
 	public function render(Page $page) {
 		$viewPath = $this->path;
-		if (substr($viewPath, strlen($viewPath)-5, 5) == ".xslt") {
+		if (strToLower(substr($viewPath, strlen($viewPath)-5, 5)) == ".xslt") {
 			// file is XSLT
 			$objXML = $page->xml;
-			$objXSL = new DomDocument;
-			$objXSL->load($viewPath);
-			$proc = new xsltprocessor;
-			$proc->importStyleSheet($objXSL);
-			echo $proc->transformToXML($objXML);
+			$objXSL = new DomDocument();
+			$objXSL->load( getViewPath($viewPath) );
+			$objProc = new XSLTProcessor();
+			$objProc->registerPHPFunctions();
+			$objProc->importStyleSheet($objXSL);
+			echo $objProc->transformToXML($objXML);
 		} else {
 			// FILE IS PHP
 			$PAGE = $page;
