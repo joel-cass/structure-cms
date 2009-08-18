@@ -6,6 +6,8 @@ $strEmail = "";
 $strMessage = "";
 $strSpamCheck = "";
 
+if (!isset($aryError)) $aryError = array();
+
 if ( array_key_exists("name", $_POST) ) {
 	$strName = $_POST["name"];
 }

@@ -222,17 +222,17 @@ class Page {
 	
 
 	public function getPlaceHolderViews($name) {
-		return getPlaceHolder($name)->getViews();
+		return $this->getPlaceHolder($name)->getViews();
 	}
 	
 
 	public function setPlaceHolderViews($name, $views) {
-		getPlaceHolder($name)->setViews($views);
+		$this->getPlaceHolder($name)->setViews($views);
 	}
 	
 
 	public function deletePlaceHolderView ($name, $index) {
-		getPlaceHolder($name)->deleteView($index);
+		$this->getPlaceHolder($name)->deleteView($index);
 	}
 	
 	public function getParent() {
