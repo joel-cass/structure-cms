@@ -11,6 +11,7 @@
 		<layout>default</layout>
 		<placeholders>
 			<placeholder name="main">
+				<view path="main/title_and_text.php" />
 				<view path="main/contact_form.php" />
 			</placeholder>
 		</placeholders>
