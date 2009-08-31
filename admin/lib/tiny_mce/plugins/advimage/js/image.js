@@ -18,8 +18,10 @@ var ImageDialog = {
 		this.fillFileList('out_list', 'tinyMCEImageList');
 		TinyMCE_EditableSelects.init();
 
+		var _src = dom.getAttrib(n, 'src').replace(/[\&\?]?w=[0-9]*/,"").replace(/[\&\?]?h=[0-9]*/,"");
+
 		if (n.nodeName == 'IMG') {
-			nl.src.value = dom.getAttrib(n, 'src');
+			nl.src.value = _src;
 			nl.width.value = dom.getAttrib(n, 'width');
 			nl.height.value = dom.getAttrib(n, 'height');
 			nl.alt.value = dom.getAttrib(n, 'alt');
@@ -141,8 +143,12 @@ var ImageDialog = {
 			};
 		}
 
+		var _src = nl.src.value.replace(/[\&\?]?w=[0-9]*/,"").replace(/[\&\?]?h=[0-9]*/,"");
+		if (nl.width.value != '') { _src += (_src.indexOf("?") < 0 ? "?" : "&") + "w=" + nl.width.value; }
+		if (nl.height.value != '') { _src += (_src.indexOf("?") < 0 ? "?" : "&") + "h=" + nl.height.value; }
+		
 		tinymce.extend(args, {
-			src : nl.src.value,
+			src : _src,
 			width : nl.width.value,
 			height : nl.height.value,
 			alt : nl.alt.value,

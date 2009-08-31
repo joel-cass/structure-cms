@@ -2,13 +2,13 @@
 require_once("../../../../../classes/includes/paths.php");
 
 $strServer = "http";
-if ($_SERVER["HTTPS"] == "on") {
+if (array_key_exists("HTTPS", $_SERVER) && $_SERVER["HTTPS"] == "on") {
 	$strServer .= "s";
 }
 $strServer .= "://";
 $strServer .= $_SERVER["HTTP_HOST"];
 
-$strFolder = $_GET["folder"];
+$strFolder = array_key_exists("folder", $_GET) ? $_GET["folder"] : "";
 $strFolder = ereg_replace("../[^/]*", "/", $strFolder);
 $strFolder = str_replace("../", "/", $strFolder);
 
@@ -18,7 +18,7 @@ $strUploadURL = getUploadURL()  . $strFolder;
 $blnUploaded = false;
 $strUploadedFile = "";
 
-if ($_FILES["upload"] != null) {
+if (array_key_exists("upload", $_FILES) && $_FILES["upload"] != null) {
 	$fldUpload = $_FILES["upload"];
 	$strDest = $strUploadPath;
 	$strName = ereg_replace("[^A-Za-z0-9\.]", "-", $fldUpload["name"]);
