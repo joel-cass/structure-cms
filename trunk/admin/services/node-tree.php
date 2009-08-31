@@ -130,6 +130,9 @@ if ( $blnAjax ) {
 	});
 	// -->
 	</script>
+	<div id="logout">
+		<a href="../logout.php" target="_parent">Logout</a>
+	</div>
 	</body>
 	</html>
 	<?php
