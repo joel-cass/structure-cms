@@ -48,6 +48,13 @@ UL#actions-nav LI A:active {
 	border: 1px inset #666666;
 }
 
+DIV#logout {
+	position: absolute;
+	background-color: #FFFFFF;
+	bottom: 10px;
+	right: 10px;	
+}
+
 .tree, .tree UL, .tree LI {
 	list-style: none;
 	display: block;
