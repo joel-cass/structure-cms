@@ -352,6 +352,22 @@ a:hover {
 	width: 75%;
 }
 
+#content div.listing-image {
+	float: left;	
+	margin-right: 10px;
+}
+
+#content div.hr {
+	clear: both;
+	border-bottom: 1px solid #C0C0C0;
+	font-size: 1px;
+	height: 10px;	
+	margin: 0 0 10px 0;
+}
+#content div.hr hr {
+	display: none;
+}
+
 #side {
 	float: right;
 	width: 20%;
