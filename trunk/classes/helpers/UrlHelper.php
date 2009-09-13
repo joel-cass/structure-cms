@@ -7,14 +7,15 @@ class UrlHelper {
 		$strPage = $defaultPage;
 		if ( array_key_exists("path", $_GET) ) {
 			$strPage = $_GET["path"];
-		} elseif ( array_key_exists("PATH_INFO", $_SERVER) ) {
-			$strPage = $_SERVER["PATH_INFO"];
+		/*} elseif ( array_key_exists("PATH_INFO", $_SERVER) ) {
+			$strPage = $_SERVER["PATH_INFO"];*/
 		} elseif (strstr($_SERVER["SCRIPT_FILENAME"], getPath(""))) {
 			$strPage = "/" . str_replace(getPath(""), "", dirname($_SERVER["SCRIPT_FILENAME"]));
 		}
 		// strip out paths
 		$strPage = preg_replace("/\/index\.php$/", "", $strPage);
 		$strPage = preg_replace("/^\/content/", "", $strPage);
+		
 		// if page exists, return it, otherwise return default page
 		if (Page::isPage($strPage)) {
 			return $strPage;
