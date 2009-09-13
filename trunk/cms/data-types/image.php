@@ -27,7 +27,7 @@ class type_image extends DataType {
 				mkdir($strDest);
 			}
 			
-			if ($this->options["conflict"] == "make-unique") {
+			if (!array_key_exists("conflict", $this->options) || $this->options["conflict"] == "make-unique") {
 				// fancy action: make files unique
 				$strOrigName = $strName;
 				$i = 1;
