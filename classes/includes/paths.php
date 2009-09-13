@@ -4,26 +4,18 @@ function getRootPath() {
 	global $_ROOT_PATH;
 	if ($_ROOT_PATH == null || $_ROOT_PATH == "") {
 		$absPath = $_SERVER["SCRIPT_FILENAME"];
-		$strPath = "";
-		
+		$strPath = str_replace("\\", "/", $absPath);
+				
 		$isWindows = substr($absPath, 0, 1) != "/";
 	
-		$aryAbsPath = split("/", $absPath);
-	
-		$path_found = false;
-		for ($i = 0; $i < count($aryAbsPath); $i++) {
-			if ($aryAbsPath[$i] != "") {
-				if ($isWindows == false || $strPath != "") {
-					$strPath .= "/";
-				}
-				$strPath .= $aryAbsPath[$i];
-				if (is_file($strPath . "/.structurecms.root")) {
-					$path_found = true;
-					break;
-				}
+		while (strstr($strPath,"/")) {
+			$strPath = preg_replace("/\/[^\/]*$/","",$strPath);
+			if (is_file($strPath . "/.structurecms.root")) {
+				$path_found = true;
+				break;
 			}
 		}
-		
+				
 		if (!$path_found) {
 			die("<h1>Root path not found.</h1><p>Please ensure that a file with the name \".structurecms.root\" exists in the root of this installation.</p>");
 		}
