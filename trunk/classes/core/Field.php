@@ -42,9 +42,7 @@ class Field {
 		if ($process == true) {
 			$value = $this->process($value);
 		}
-		if ($value != null) {
-			XmlHelper::setText($this->xml, $value);
-		}
+		XmlHelper::setText($this->xml, ($value != null ? $value : ""));
 	}
 
 	
