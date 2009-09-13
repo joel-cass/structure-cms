@@ -18,7 +18,7 @@ var ImageDialog = {
 		this.fillFileList('out_list', 'tinyMCEImageList');
 		TinyMCE_EditableSelects.init();
 
-		var _src = dom.getAttrib(n, 'src').replace(/[\&\?]?w=[0-9]*/,"").replace(/[\&\?]?h=[0-9]*/,"");
+		var _src = dom.getAttrib(n, 'src').replace(/[\&\?]?w=[0-9%]*/,"").replace(/[\&\?]?h=[0-9%]*/,"");
 
 		if (n.nodeName == 'IMG') {
 			nl.src.value = _src;

@@ -5,17 +5,13 @@ $height = null;
 
 if (array_key_exists("path", $_GET))
 	$path = $_GET["path"];
-if (array_key_exists("w", $_GET))
+if (array_key_exists("w", $_GET) && is_numeric($_GET["w"]))
 	$width = $_GET["w"];
-if (array_key_exists("h", $_GET))
+if (array_key_exists("h", $_GET) && is_numeric($_GET["h"]))
 	$height = $_GET["h"];
 
 if ($path == null) {
 	exit();
-}
-
-if ($width == null && $height == null) {
-	header("location", $path);
 }
 
 $ext = strToLower(preg_replace("/^.*\./","",$path));
@@ -23,7 +19,7 @@ $ext = strToLower(preg_replace("/^.*\./","",$path));
 $image_path = realpath($path);
 
 if (!file_exists($image_path)) {
-	header("location", $path);
+	//header("location: $path");
 	exit();
 }
 
