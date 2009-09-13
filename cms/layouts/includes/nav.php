@@ -30,6 +30,6 @@ if (!function_exists("nav_renderNavItem")) {
 	}
 	
 }
-echo nav_renderNavItemsBelow(new Page("/home"), "content", true);
+echo nav_renderNavItemsBelow(new Page("/home"), null, true);
 
 ?>

@@ -5,10 +5,6 @@
 			<type>string</type>
 			<description>Title of the page</description>
 		</field>
-		<field name="Email">
-			<type>string</type>
-			<description>Email Address</description>
-		</field>
 		<field name="Description">
 			<type>text</type>
 			<description>Description of page</description>
@@ -24,6 +20,14 @@
 		<field name="Thank you Content">
 			<type>html</type>
 			<description>Thank You Content</description>
+		</field>
+		<field name="Email">
+			<type>string</type>
+			<description>Email Address</description>
+		</field>
+		<field name="Subject">
+			<type>string</type>
+			<description>Email Subject</description>
 		</field>
 	</fields>
 </type>
