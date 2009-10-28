@@ -36,7 +36,7 @@ class LayoutHelper {
 	// RENDERING FUNCTIONS
 	
 	public static function renderLink (Page $objPage, $titleField = "Title") {
-		echo "<a href=" . $objPage->getURL() . ">";
+		echo "<a href=\"" . $objPage->getURL() . "\">";
 		LayoutHelper::renderField($objPage, $titleField);
 		echo "</a>";
 	}

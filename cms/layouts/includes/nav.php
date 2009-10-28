@@ -7,7 +7,7 @@ if (!function_exists("nav_renderNavItem")) {
 		if ($recurse == true) {
 			$strSubNav = nav_renderNavItemsBelow ($page, $type);
 		} else {
-			$strSubNav = "<ul></ul>";
+			$strSubNav = "";
 		}
 		$strAttribs = "";
 		if (($page->path != "/home" || $PAGE->path == "/home") && strstr($PAGE->path, $page->path)) $strAttribs .= " class=\"selected\"";
@@ -17,7 +17,6 @@ if (!function_exists("nav_renderNavItem")) {
 	function nav_renderNavItemsBelow ($parent, $type=null, $includeParent=false) {
 		$aryPages = $parent->getChildren();
 		$strReturn = "";
-		$strReturn .= "<ul>";
 		if ($includeParent == true) {
 			$strReturn .= nav_renderNavItem($parent, $type, false);
 		}
@@ -25,7 +24,9 @@ if (!function_exists("nav_renderNavItem")) {
 			if ($type != null && $aryPages[$i]->getContentType() != $type) continue;
 			$strReturn .= nav_renderNavItem($aryPages[$i], $type);
 		}	
-		$strReturn .= "</ul>";
+		if ($strReturn != "") {
+			$strReturn = "<ul>" . $strReturn . "</ul>";
+		}
 		return $strReturn;
 	}
 	

@@ -6,7 +6,8 @@
 	<meta name="Keywords" content="<?php LayoutHelper::renderField($PAGE, "Keywords"); ?>">
 	<meta name="Description" content="<?php LayoutHelper::renderField($PAGE, "Description"); ?>">
 	<title><?php LayoutHelper::renderField($PAGE, "Title"); ?></title>
-	<link href="<?php echo getRootURL(); ?>/jnet/lib/style-blue.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo getRootURL(); ?>/jnet/lib/style.css" rel="stylesheet" type="text/css">
+	<script src="<?php echo getRootURL(); ?>/jnet/lib/suckerfish.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -17,7 +18,6 @@
 		<div id="navigation">
 			<?php include "includes/nav.php" ?>
 		</div>
-		<div id="navigation-footer"></div>
 		<div id="content-wrapper">
 			<div id="side-nav">
 				<?php include "includes/side-nav.php" ?>
