@@ -15,13 +15,14 @@ if (!function_exists("sidenav_renderNavItem")) {
 		$aryPages = $parent->getChildren();
 		$strReturn = "";
 		if (count($aryPages) > 0) {
-			$strReturn .= "<ul>";
 			for ($i = 0; $i < count($aryPages); $i++) {
 				if ($type != null && $aryPages[$i]->getContentType() != $type) continue;
 				if ($bloodline != null && !strstr($bloodline, $parent->path)) continue;
 				$strReturn .= sidenav_renderNavItem($aryPages[$i], $type, $bloodline);
 			}	
-			$strReturn .= "</ul>";
+			if ($strReturn != "") {
+				$strReturn = "<ul>" . $strReturn . "</ul>";
+			}
 		}
 		return $strReturn;
 	}
