@@ -1,9 +1,0 @@
-<type>
-	<name>WordPress</name>
-	<fields>
-		<field name="Path">
-			<type>string</type>
-			<description>Path to WordPress installation, relative to CMS root</description>
-		</field>
-	</fields>
-</type>
