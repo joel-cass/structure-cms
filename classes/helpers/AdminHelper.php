@@ -45,6 +45,7 @@ class AdminHelper {
 	public static function authenticate ($username, $password) {
 		global $aryUsers;
 		$blnValidated = false;
+		$password = hash("md5",strtolower($password));
 		foreach ($aryUsers as $u) {
 			if ($username == $u[0] && $password == $u[1]) {
 				return true;

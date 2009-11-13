@@ -1,0 +1,17 @@
+<content type="content">
+	<fields>
+		<field name="Site Name">StructureCMS</field>
+		<field name="Description">Default installation of StructureCMS</field>
+		<field name="Keywords">StructureCMS Content Management System</field>
+		<field name="Theme">classic</field>
+	</fields>
+	<options>
+		<layout>default</layout>
+		<placeholders>
+			<placeholder name="main">
+				<view path="main/title_and_text.php" />
+			</placeholder>
+		</placeholders>
+      <active>1</active>
+	</options>
+</content>
