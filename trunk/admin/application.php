@@ -5,10 +5,16 @@ if (phpversion() < "5.0") {
 	die("This project is only supported in PHP 5 and above.");
 }
 
+// CALCULATE PATH
+$numDirs = substr_count(preg_replace("/^.*\/admin/","",$_SERVER["SCRIPT_NAME"]),"/");
+$strIncludePath = str_repeat("../", $numDirs-1);
+
+$adminPath = preg_replace("/(^.*\/admin\/).*$/","$1",$_SERVER["SCRIPT_NAME"]);
+
 // INCLUDE SHARED DEPENDENCIES
-require_once "../classes/includes/paths.php";
-require_once "../classes/helpers/AdminHelper.php";
-require_once "modules/controller.php";
+require_once $strIncludePath . "../classes/includes/paths.php";
+require_once $strIncludePath . "../classes/helpers/AdminHelper.php";
+require_once $strIncludePath . "modules/controller.php";
 
 // AUTHENTICATE USER
 session_start();
@@ -26,7 +32,7 @@ if ( $blnAuthenticate == true ) {
 	}
 
 	if ( !AdminHelper::authenticate($strUsername, $strPassword) ) {
-		header("Location: login.php");
+		header("Location: ". $adminPath . "login.php");
 		exit;
 	}
 }
