@@ -1,0 +1,21 @@
+<type>
+	<name>Content</name>
+	<fields>
+		<field name="Site Name">
+			<type>string</type>
+			<description>Name of the website</description>
+		</field>
+		<field name="Description">
+			<type>text</type>
+			<description>Default Site Description</description>
+		</field>
+		<field name="Keywords">
+			<type>string</type>
+			<description>Default Site Keywords for search engines etc</description>
+		</field>
+		<field name="Theme">
+			<type>theme</type>
+			<description>Layout / style of page</description>
+		</field>
+	</fields>
+</type>
