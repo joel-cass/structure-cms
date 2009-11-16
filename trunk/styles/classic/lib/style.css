@@ -31,6 +31,12 @@ a:hover {
 	text-decoration:underline;	
 }
 
+input,textarea,select { border:1px solid #808080; }
+input[type='button'] { background-color:#EFEFEF; }
+input[type='radio'] { border:0; }
+input[type='hidden'] { border:0; }
+input[type='checkbox'] { border:0; }
+
 /* IDs */
 
 #page-wrapper {
