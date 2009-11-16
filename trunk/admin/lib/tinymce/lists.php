@@ -12,19 +12,20 @@ if (array_key_exists("type",$_GET) && array_key_exists($_GET["type"], $stcTypes)
 	$strURL  = getRootURL() . "/" . $stcType["path"];
 	$strURL  = str_ireplace("\\", "/", $strURL);
 
-	$aryEntries = scanDir($strPath);
-	
 	echo "var " . $stcType["tinyMceVarName"] . " = new Array(";
 	
-	$blnComma = false;
-	for ($i = 0; $i < count($aryEntries); $i++) {
-		$strExt = preg_replace("/^.*\./","",$aryEntries[$i]);
-		if (array_search($strExt, $stcType["extensions"], true)) {
-			if ($blnComma) echo ","; $blnComma = true;
-			echo "\r\n\t[\"" . $aryEntries[$i] . "\", \"" . $strURL . "/" . $aryEntries[$i] . "\"]";
+	if (file_exists($strPath)) {
+		$aryEntries = scanDir($strPath);
+		$blnComma = false;
+		for ($i = 0; $i < count($aryEntries); $i++) {
+			$strExt = preg_replace("/^.*\./","",$aryEntries[$i]);
+			if (array_search($strExt, $stcType["extensions"], true)) {
+				if ($blnComma) echo ","; $blnComma = true;
+				echo "\r\n\t[\"" . $aryEntries[$i] . "\", \"" . $strURL . "/" . $aryEntries[$i] . "\"]";
+			}
 		}
 	}
-	
+		
 	echo "\r\n);";
 }
 

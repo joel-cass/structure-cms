@@ -11,13 +11,13 @@ window.onload = function() {
 	} 
 	
 	var onUploadStart = function (file) {
-		document.getElementById("file").style.display = "block";
+		document.getElementById("swfupload_file").style.display = "block";
 	}; 
 
 	var onUploadProgress = function (file, complete, total) { 
-		elWrapper = document.getElementById("file");
-		elProgress = document.getElementById("file_bar");
-		elName = document.getElementById("file_name");
+		elWrapper = document.getElementById("swfupload_file");
+		elProgress = document.getElementById("swfupload_file_bar");
+		elName = document.getElementById("swfupload_file_name");
 		elName.innerHTML = file.name;
 		elProgress.style.width = Math.round((complete / total) * elWrapper.clientWidth) + "px";
 	}; 
@@ -29,6 +29,9 @@ window.onload = function() {
 			switchType(stcResponse.path);
 			generatePreview();
 		}
+		if (stcResponse.error) {
+			alert("Error uploading " + file.name + ": " + stcResponse.error);
+		}
 	}; 
 
 	var onUploadError = function (file, code, message) { 
@@ -39,31 +42,12 @@ window.onload = function() {
 		if (swfu.getStats().files_queued > 0) {
 			swfu.startUpload();
 		} else {
-			document.getElementById("file").style.display = "none";
+			document.getElementById("swfupload_file").style.display = "none";
 		}
 	} 
 	
-	var getSessionString = function () {
-		aryFields = "CFID,CFTOKEN,JSESSIONID".split(",");
-		strSession = "";
-		for (var i = 0; i < aryFields.length; i++) {
-			if (document.cookie.length>0) {
-				s=document.cookie.indexOf(aryFields[i] + "=");
-				if (s != -1) {
-					s += aryFields[i].length + 1;
-					e = document.cookie.indexOf(";", s);
-					if (e == -1) { 
-						e=document.cookie.length; 
-					}
-					strSession += "&" + aryFields[i] + "=" + document.cookie.substring(s,e);
-				}
-			}
-		}
-		return strSession;
-	}
-	
 	var swfu = new SWFUpload({ 
-		upload_url : "../../../../upload.cfm?type=media" + getSessionString(), 
+		upload_url : "../../../../upload.php?type=media&s=" + getSessionString(), 
 		flash_url : "../../../swfupload/swfupload.swf", 
 		file_post_name : "Filedata",
 		file_size_limit : "200 MB", 

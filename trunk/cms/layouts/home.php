@@ -6,14 +6,14 @@
 	<meta name="Keywords" content="<?php LayoutHelper::renderField($PAGE, "Keywords"); ?>">
 	<meta name="Description" content="<?php LayoutHelper::renderField($PAGE, "Description"); ?>">
 	<title><?php LayoutHelper::renderField($PAGE, "Title"); ?></title>
-	<link href="<?php echo getRootURL(); ?>/styles/classic/lib/style.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo getRootURL(); ?>/styles/<?php echo SettingsHelper::getSetting("Theme"); ?>/lib/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<div id="page-wrapper">
 		<div id="page">
 			<div id="site-name">
-				<span>StructureCMS</span>
+				<span><?php echo SettingsHelper::getSetting("Site Name"); ?></span>
 			</div>
 			<div id="navigation">
 				<?php include "includes/nav.php" ?>
