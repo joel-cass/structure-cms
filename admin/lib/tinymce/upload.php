@@ -1,19 +1,21 @@
 <?php 
 require "application.php";
+
+$strFieldName = "Filedata";
 ?>
 
 <?php if (array_key_exists("showForm",$_GET)) { ?>
 	<form action="" method="post" enctype="multipart/form-data">
-		<input type="file" name="filedata">
+		<input type="file" name="<?php echo $strFieldName ?>">
 		<input type="submit">
 	</form>
 <?php } ?>
 
 <?php
-if (array_key_exists("filedata", $_FILES) && $_FILES["filedata"] != null && array_key_exists("type", $_GET) && array_key_exists($_GET["type"], $stcTypes)) {
+if (array_key_exists($strFieldName, $_FILES) && $_FILES[$strFieldName] != null && array_key_exists("type", $_GET) && array_key_exists($_GET["type"], $stcTypes)) {
 	try {
 		$stcType = $stcTypes[$_GET["type"]];
-		$fldUpload = $_FILES["filedata"];
+		$fldUpload = $_FILES[$strFieldName];
 		$strDest = getRootPath() . "/" . $stcType["path"];
 		$strURL = getRootURL() . "/" . $stcType["path"];
 		$strName = ereg_replace("[^A-Za-z0-9\.]", "-", $fldUpload["name"]);
@@ -21,8 +23,7 @@ if (array_key_exists("filedata", $_FILES) && $_FILES["filedata"] != null && arra
 		
 		// check for existing file
 		if (array_search($strExt, $aryDenyFileExt, true)) {
-			header(null,null,599);
-			echo "{error:Files of that type are not allowed to be uploaded. Sorry.}";
+			echo "{error:\"Files of that type are not allowed to be uploaded. Sorry.\"}";
 			exit();
 		}
 		
@@ -53,13 +54,11 @@ if (array_key_exists("filedata", $_FILES) && $_FILES["filedata"] != null && arra
 		exit();
 		
 	} catch (Exception $e) {
-		header(null,null,598);
-		echo "{error:" . $e->getMessage() . "}";
+		echo "{error:\"" . $e->getMessage() . "\"}";
 		exit();
 	}
 } else {
-	header(null,null,597);
-	echo "{error:invalid upload type or no file provided}";
+	echo "{error:\"Invalid upload type or no file provided\"}";
 	exit();
 }
 

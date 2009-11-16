@@ -16,6 +16,7 @@ class Layout {
 	
 	public function render(Page $PAGE) {
 		require_once getRootPath() . "/classes/helpers/LayoutHelper.php";
+		require_once getRootPath() . "/classes/helpers/SettingsHelper.php";
 		include $this->path; 
 	}
 

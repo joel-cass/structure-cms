@@ -18,6 +18,12 @@ require_once $strIncludePath . "modules/controller.php";
 
 // AUTHENTICATE USER
 session_start();
+
+if (array_key_exists("s", $_GET)) {
+	$strSession = base64_decode($_GET["s"]);
+	session_decode($strSession);
+}
+
 if (!isset($blnAuthenticate)) {
 	$blnAuthenticate = true;
 }

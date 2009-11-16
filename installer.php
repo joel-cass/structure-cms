@@ -30,23 +30,13 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 		mkdir(getPath(""));
 	}
 
-	// create settings
-	if (!Page::isPage("/config")) {
-		$home = Page::create("/config", "settings");
-		$home->setField("Title", "Home");
-		$home->setField("Content", "<h2>Welcome to StructureCMS!</h2><p>Your site has been installed and is ready to use. The following links may be of assistance to you.</p><ul><li><a href=\"" . getRootURL() . "/admin\">Administration</a> (U:$strUsername, p:$strPassword)</li><li><a href=\"" . getRootURL() . "/content/footer/search/\">Search</a></li><li><a href=\"" . getRootURL() . "/content/footer/contact/\">Contact</a></li><li><a href=\"" . getRootURL() . "/content/rss/latest/\">RSS Feed</a></li></ul>");
-		$home->setLayout("home");
-		$home->save();
-	}
-	
-	
 	// Create website tree
 	if (!Page::isPage("/home")) {
 		$home = Page::create("/home", "content");
 		$home->setField("Title", "Home");
 		$home->setField("Description", "Home page of a default installation of StructureCMS");
 		$home->setField("Keywords", "StructureCMS Content Management System");
-		$home->setField("Content", "<h2>Welcome to StructureCMS!</h2><p>Your site has been installed and is ready to use. The following links may be of assistance to you.</p><ul><li><a href=\"" . getRootURL() . "/admin\">Administration</a> (U:$strUsername, p:$strPassword)</li><li><a href=\"" . getRootURL() . "/content/footer/search/\">Search</a></li><li><a href=\"" . getRootURL() . "/content/footer/contact/\">Contact</a></li><li><a href=\"" . getRootURL() . "/content/rss/latest/\">RSS Feed</a></li></ul>");
+		$home->setField("Content", "<h2>Welcome to StructureCMS!</h2><p>Your site has been installed and is ready to use. The following links may be of assistance to you.</p><ul><li><a href=\"" . getRootURL() . "/admin\">Administration</a> (U:$strUsername, p:".$_POST["password"].")</li><li><a href=\"" . getRootURL() . "/content/footer/search/\">Search</a></li><li><a href=\"" . getRootURL() . "/content/footer/contact/\">Contact</a></li><li><a href=\"" . getRootURL() . "/content/rss/latest/\">RSS Feed</a></li></ul>");
 		$home->setLayout("home");
 		$home->save();
 	}
@@ -99,6 +89,17 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 		$latest->setField("Description", "Latest items created or modified on the site");
 		$latest->save();
 	}
+	
+	// create settings
+	if (!Page::isPage("/config")) {
+		$settings = Page::create("/config", "settings");
+		$settings->setField("Site Name", $_POST["sitename"]);
+		$settings->setField("Description", "Default installation of StructureCMS");
+		$settings->setField("Keywords", "StructureCMS Content Management System");
+		$settings->setField("Theme", "classic");
+		$settings->save();
+	}
+	
 } else {
 	$strSiteName = array_key_exists("sitename", $_POST) ? $_POST["sitename"] : "StructureCMS";
 	$strUserName = array_key_exists("username", $_POST) ? $_POST["username"] : "admin";
@@ -114,7 +115,7 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 	
 	<body>
 
-	<!-- <h1>StructureCMS Installation</h1> -->
+	<h1>StructureCMS Installation</h1>
 
 	<form action="" method="POST">
 		
