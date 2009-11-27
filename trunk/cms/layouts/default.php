@@ -5,8 +5,9 @@
 <head>
 	<meta name="Keywords" content="<?php LayoutHelper::renderField($PAGE, "Keywords"); ?>">
 	<meta name="Description" content="<?php LayoutHelper::renderField($PAGE, "Description"); ?>">
-	<title><?php LayoutHelper::renderField($PAGE, "Title"); ?></title>
+	<title><?php LayoutHelper::renderField($PAGE, "Title"); ?> &laquo; <?php echo SettingsHelper::getSetting("Site Name"); ?></title>
 	<link href="<?php echo getRootURL(); ?>/styles/<?php echo SettingsHelper::getSetting("Theme"); ?>/lib/style.css" rel="stylesheet" type="text/css">
+	<?php if (file_exists(getRootPath()."/styles/".SettingsHelper::getSetting("Theme")."/head.php")) { include(getRootPath()."/styles/".SettingsHelper::getSetting("Theme")."/head.php"); }?>
 </head>
 
 <body>

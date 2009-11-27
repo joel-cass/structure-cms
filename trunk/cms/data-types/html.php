@@ -1,5 +1,6 @@
 <?php
 require_once getRootPath() . "/classes/core/DataType.php";
+require_once getRootPath() . "/classes/helpers/SettingsHelper.php";
 
 class type_html extends DataType {
 	
@@ -27,7 +28,13 @@ class type_html extends DataType {
 					theme_advanced_resizing : true,
 					
 					// Content CSS (should be your site CSS)
-					content_css : \"lib/tinymce/css/content.css\",
+					";
+		if ( file_exists(getRootPath()."/styles/".SettingsHelper::getSetting("Theme")."/lib/editor.css") ) {
+			$strReturn .= "content_css : \"".getRootURL()."/styles/".SettingsHelper::getSetting("Theme")."/lib/editor.css\",";
+		} else {
+			$strReturn .= "content_css : \"lib/tinymce/css/content.css\",";
+		}
+			$strReturn .= "
 					
 					// Drop lists for link/image/media/template dialogs
 					external_link_list_url : \"lib/tinymce/lists.php?type=link\",

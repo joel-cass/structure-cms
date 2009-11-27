@@ -1,0 +1,92 @@
+@import url("reset.css");
+
+body {
+	font-family:trebuchet ms,arial,helvetica,sans-serif;
+	font-size:0.8em;
+}
+
+h1, h2, h3, h4, h5 { 
+	font-family:verdana,arial,helvetica,sans-serif;
+	line-height:1.8em; 
+	margin:0.6em 0; 
+	font-weight:bold;
+}
+p { margin-bottom:1em;	}
+
+h1 { font-size:1.8em; }
+h2 { font-size:1.6em; }
+h3 { font-size:1.4em; }
+h4 { font-size:1.2em; }
+h5 { font-size:1.1em; }
+h6 { font-size:1.0em; }
+
+a:link, a:visited, a:hover, a:active {
+	color:#E9E9E9;
+	text-decoration:none;
+}
+a:hover {
+	color:#CC0000;
+	text-decoration:underline;	
+}
+
+input,textarea,select { border:1px solid #808080; }
+input[type='button'] { background-color:#EFEFEF; }
+input[type='radio'] { border:0; }
+input[type='hidden'] { border:0; }
+input[type='checkbox'] { border:0; }
+
+/* IDs */
+
+body {
+	background-color:#A5A5A5;
+	margin:8px;
+}
+
+a:link, a:visited, a:hover, a:active {
+	color:#C00000;
+}
+h1 a:link, h1 a:visited, h1 a:hover, h1 a:active,
+h2 a:link, h2 a:visited, h2 a:hover, h2 a:active,
+h3 a:link, h3 a:visited, h3 a:hover, h3 a:active,
+h4 a:link, h4 a:visited, h4 a:hover, h4 a:active,
+h5 a:link, h5 a:visited, h5 a:hover, h5 a:active,
+h6 a:link, h6 a:visited, h6 a:hover, h6 a:active {
+	color:#000000;
+}
+		
+h1,h2,h3,h4,h5,h6 { 
+	clear:left; 
+	padding-left:0.6em;
+	background:#AFAFAF url(../images/hr.gif) 0 100% repeat-x; 
+}
+ul, ol { margin:0 0 0 30px; }
+ul { list-style:disc outside; }
+ul ul { list-style:circle outside; }
+ul ul ul { list-style:square outside; }
+ol { list-style:decimal outside; }
+ol ol { list-style:lower-alpha outside; }
+ol ol ol { list-style:lower-roman outside; }
+li { display:list-item; margin:0.25em 0 0.25em 0; }
+
+hr { display: none; }
+
+form { margin: 0 }
+form fieldset { display:block; margin:10px; }
+form fieldset.spam-check { display:none; }
+form label { display:block; float:left; width:120px; text-align: right; margin-right:10px; }
+form input { display:block; float:left; width:200px; }
+form textarea { display:block; float:left; width:250px; height:100px; }
+
+.error-wrapper { border:1px solid red; background-color:#FFAAAA;  }
+ul.error-wrapper { list-style-position:inside; margin:0; padding:6px 10px; }
+
+/* SHARED CLASSES */
+
+.clear {
+	clear:both;
+}
+.clear-hidden {
+	clear:both;
+	font-size:1px;
+	height:1px;
+}

@@ -10,7 +10,7 @@ BODY {
 h1, h2, h3, h4, h5 { 
 	font-family:ocr a extended,courier new,monospace;
 	line-height:1.3em; 
-	margin-bottom:0.3em; 
+	margin:0.6em 0; 
 	font-weight:bold;
 }
 p { margin-bottom:1em;	}
@@ -114,7 +114,7 @@ input[type='checkbox'] { border:0; }
 #content {
 	margin:8px;
 }
-#content.home h1 { display:none; }
+#content h1#title { display:none; }
 
 #content h1,#content h2,#content h3,#content h4,#content h5,#content h6 { 
 	clear:left; 
