@@ -1,3 +1,4 @@
 # Image URL Rewriting
 RewriteEngine On
+RewriteCond %{QUERY_STRING}  ^.+$
 RewriteRule ^(.*\.([pP][nN][gG]|[gG][iI][fF]|[jJ][pP][eE]?[gG])) ./image.php?path=$1&%{QUERY_STRING}
