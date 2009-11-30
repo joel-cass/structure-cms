@@ -105,6 +105,7 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 	$strUserName = array_key_exists("username", $_POST) ? $_POST["username"] : "admin";
 	$strPassword1 = array_key_exists("password", $_POST) ? $_POST["password"] : "";
 	$strPassword2 = array_key_exists("password2", $_POST) ? $_POST["password2"] : "";
+	$aryHighlightFields = array();
 	?>
 	<html>
 	
@@ -116,6 +117,18 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 	<body>
 
 	<h1>StructureCMS Installation</h1>
+
+	<?php 
+	if (array_key_exists("password", $_POST)) {
+		if ($strPassword1 == "" && $strPassword2 == "") { 
+			echo("<h2 class=\"warning\">Please enter a password.</h2>");
+		} else {
+			echo("<h2 class=\"warning\">Passwords must match.</h2>");
+		}
+		$aryHighlightFields["password"] = 1;
+		$aryHighlightFields["password2"] = 1;
+	} 
+	?>
 
 	<form action="" method="POST">
 		
@@ -129,12 +142,12 @@ if (array_key_exists("password",$_POST) && $_POST["password"] != "" && $_POST["p
 			<input type="text" name="username" id="username" value="<?php echo $strUserName?>" />
 		</fieldset>	
 	
-		<fieldset>
+		<fieldset<?php if (array_key_exists("password", $aryHighlightFields)) echo " class=\"invalid\""?>>
 			<label for="password">Admin Password</label>
 			<input type="password" name="password" id="password" value="<?php echo $strPassword1?>" />
 		</fieldset>	
 	
-		<fieldset>
+		<fieldset<?php if (array_key_exists("password2", $aryHighlightFields)) echo " class=\"invalid\""?>>
 			<label for="password2">(confirm)</label>
 			<input type="password" name="password2" id="password2" value="<?php echo $strPassword2?>" />
 		</fieldset>	
