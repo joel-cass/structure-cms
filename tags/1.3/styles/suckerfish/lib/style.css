@@ -1,0 +1,406 @@
+@import url("reset.css");
+
+BODY {
+	font-size:0.8em;
+	color:#000000;
+	/*background:#FFFFFF url(../images/bg-gradient-grey.gif) repeat-x 0 0;*/
+	background-color:#FFFFFF;
+	height:100%;
+	padding:0;
+}
+
+h1, h2, h3, h4, h5 { margin-bottom:0.3em; font-weight:bold;	}
+p { margin-bottom:1em;	}
+
+h1 { font-size:1.8em; }
+h2 { font-size:1.6em; }
+h3 { font-size:1.4em; }
+h4 { font-size:1.2em; }
+h5 { font-size:1.1em; }
+h6 { font-size:1.0em; }
+
+a:link, a:visited, a:hover, a:active {
+	color:#F26522;
+	text-decoration:none;
+}
+a:visited {
+	color:#E65906;	
+}
+a:hover {
+	color:black;
+	text-decoration:underline;	
+}
+
+/* IDs */
+
+#page-wrapper {
+	border:1px solid #DEDEDE;
+	border-top:0;
+	width:800px;
+	margin:0 auto; 
+	position:relative;
+}
+
+#page {
+	background-color:#FFFFFF;
+	margin:0 2px 2px 2px;
+}
+
+/* TITLE */
+
+#site-name {
+	background:#CCCCCC url(../images/bg-header.gif) repeat-x 0 0;
+	padding:10px 20px 10px 0;
+	text-align:right;
+}
+#site-name span {
+	font-family:Georgia, serif;
+	font-size:60px;
+	color:#333333;
+}
+
+/* NAVIGATION */
+
+#navigation {
+	clear:both;
+}
+
+/* level 1 */
+#navigation ul {
+	list-style:none; 
+	height:25px;
+	background:#660000 url(../images/gradient-grey.gif) repeat-x 0 0;
+	color:#FFFFFF;
+}
+#navigation ul li {
+	display:block; 
+	float:left; 
+}
+#navigation ul li a:link, 
+#navigation ul li a:visited, 
+#navigation ul li a:hover, 
+#navigation ul li a:active {
+	display:block; 
+	text-decoration:none;
+	text-align:center;
+	font-family:trebuchet ms, verdana, arial, helvetica, sans-serif;
+	font-weight:bold;
+	background:#660000 url(../images/gradient-grey.gif) repeat-x 0 0;
+	color:#FFFFFF;
+	height:22px;
+	width:100px;
+	padding:3px 12px 0 12px;
+	margin:0 0 0 0;
+}
+#navigation ul li a:hover {
+	background:#333333 url(../images/gradient-maroon.gif) repeat-x 0 0;
+}
+
+/* level 2 */
+#navigation ul li ul {
+	visibility:hidden;
+	position:absolute;	
+	padding:0 0 0 0;
+	border:0;
+	width:auto;
+	height:auto;
+	left:auto;
+	background:#000000 none;
+}
+#navigation ul li ul li {
+	display:block; 
+	float:none; 
+	margin:0; 
+	padding:0;
+}
+#navigation ul li ul li a:link, 
+#navigation ul li ul li a:visited, 
+#navigation ul li ul li a:hover, 
+#navigation ul li ul li a:active {
+	display:block;
+	text-decoration:none;
+	text-align:left;
+	font-weight:normal;
+	background-color:#800000;
+	color:#FFFFFF;
+	width:180px; 
+	height:16px; 
+	padding:7px 10px 7px 10px;
+	margin:1px;
+}
+#navigation ul li ul li a:hover {  }
+
+
+/* level 3+ */
+#navigation ul li ul li ul {
+	margin-left:201px;
+	margin-top:-32px;	
+}
+
+/* IE6 tweaks */
+* html #navigation { }
+* html #navigation ul { }
+* html #navigation ul li { }
+* html #navigation ul li a:link, 
+* html #navigation ul li a:visited, 
+* html #navigation ul li a:hover, 
+* html #navigation ul li a:active {  }
+* html #navigation ul li ul { border-top:1px solid black }
+* html #navigation ul li ul li { border-bottom:1px solid black; }
+* html #navigation ul li ul li a:link, 
+* html #navigation ul li ul li a:visited, 
+* html #navigation ul li ul li a:hover, 
+* html #navigation ul li ul li a:active { margin-bottom:0 !important;margin-top:0 !important; }
+* html #navigation ul li ul li ul { margin-top:-33px; }
+
+/* hover states */
+#navigation ul li:hover a, #navigation ul li.open a {  }
+#navigation ul li:hover ul, 
+#navigation ul li.open  ul {  }
+
+#navigation ul li ul { visibility:hidden; }
+#navigation ul li:hover ul, 
+#navigation ul li.over  ul { visibility:visible; }
+#navigation ul li:hover ul li ul, 
+#navigation ul li.over  ul li ul { visibility:hidden; }
+#navigation ul li:hover ul li:hover ul, 
+#navigation ul li.over  ul li.over  ul { visibility:visible; }
+#navigation ul li:hover ul li:hover ul li ul, 
+#navigation ul li.over  ul li.over  ul li ul { visibility:hidden; }
+#navigation ul li:hover ul li:hover ul li:hover ul, 
+#navigation ul li.over  ul li.over  ul li.over  ul { visibility:visible; }
+#navigation ul li:hover ul li:hover ul li:hover ul li ul, 
+#navigation ul li.over  ul li.over  ul li.over  ul li ul { visibility:hidden; }
+#navigation ul li:hover ul li:hover ul li:hover ul li:hover ul, 
+#navigation ul li.over  ul li.over  ul li.over  ul li.over  ul { visibility:visible; }
+
+#navigation-footer {
+	display:none;
+}
+
+/* CONTENT */
+
+#content-wrapper {
+	clear:both;
+	padding:0;
+	background:#FFFFFF url(../images/bg-content.gif) no-repeat 100% 0;
+	color:#000000;
+}
+
+#side-nav {
+	float:left;
+	width:180px;
+	padding:5px 0 5px 5px;
+}
+#side-nav ul {
+	list-style:none;	
+	background:none;
+}
+#side-nav ul li {
+	display:block;
+}
+#side-nav ul li ul {
+
+}
+#side-nav ul li a:visited,
+#side-nav ul li a:link,
+#side-nav ul li a:hover,
+#side-nav ul li a:active {
+	display:block;
+	padding:8px 5px 8px 15px;
+	color:#000000;
+	text-decoration:none;
+}
+#side-nav ul li a:hover {
+	background-color:#000000;
+	color:#FFFFFF;
+}
+#side-nav ul li a.selected:link, #side-nav ul li a.selected:visited, #side-nav ul li a.selected:active {
+	background-color:#CCCCCC;
+	color:#000000;
+}
+#side-nav ul li ul li a:link,
+#side-nav ul li ul li a:visited,
+#side-nav ul li ul li a:hover,
+#side-nav ul li ul li a:active {
+	padding:5px 5px 5px 30px;
+}
+#side-nav ul li ul li ul li a:link,
+#side-nav ul li ul li ul li a:visited,
+#side-nav ul li ul li ul li a:hover,
+#side-nav ul li ul li ul li a:active {
+	padding:5px 5px 5px 45px;
+}
+#side-nav ul li ul li ul li ul li a:link,
+#side-nav ul li ul li ul li ul li a:visited,
+#side-nav ul li ul li ul li ul li a:hover,
+#side-nav ul li ul li ul li ul li a:active {
+	padding:5px 5px 5px 60px;
+}
+#side-nav ul li ul li ul li ul li ul li a:link,
+#side-nav ul li ul li ul li ul li ul li a:visited,
+#side-nav ul li ul li ul li ul li ul li a:hover,
+#side-nav ul li ul li ul li ul li ul li a:active {
+	padding:5px 5px 5px 75px;
+}
+
+#content {
+	max-width:82%;
+	min-height:500px;
+	float:left;
+	padding:5px 5px 5px 5px;
+}
+* html #content {
+	height:500px;
+}
+
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+	clear:left;
+}
+#content ul {
+  display:block;
+  list-style-type:disc;
+  margin:1em 0;
+  -moz-padding-start:20px;
+}
+#content ul li ul {
+  margin:0;
+}
+#content ol {
+  display:block;
+  list-style-type:decimal;
+  margin:1em 0;
+  -moz-padding-start:40px;
+}
+#content li {
+  display:list-item;
+}
+
+#content fieldset {
+	display:block;
+	margin:0 0 1em 0;	
+}
+#content fieldset.spam-check {
+	display:none;
+}
+#content label {
+	display:block;
+	float:left;
+	width:140px;	
+}
+#content input, #content select, #content textarea {
+	display:block;
+	float:left;
+	width:200px;
+}
+#content textarea {
+	width:320px;
+	height:120px;
+}
+#content input.button {
+	width:auto;
+}
+
+#content.home {
+	padding:5px 10px 10px 10px;	
+	width:75%;
+}
+
+#content div.listing-image {
+	float:left;	
+	margin-right:10px;
+}
+
+#content div.hr {
+	clear:both;
+	border-bottom:1px solid #C0C0C0;
+	font-size:1px;
+	height:10px;	
+	margin:0 0 10px 0;
+}
+#content div.hr hr {
+	display:none;
+}
+
+#side {
+	float:right;
+	width:20%;
+	padding:5px 5px 5px 5px;
+}
+#side div.container {
+	border:1px solid #4A4A4A;
+}
+#side div.container h2 {
+	padding:5px;
+	margin:0;
+	color:#FFFFFF;	
+}
+#side div.container h3 {
+	padding:0 5px 0 5px;
+	border-top:1px solid #CCCCCC;
+}
+#side div.container p {
+	padding:0 5px 0 5px;
+}
+
+#breadcrumb {
+	margin:5px 0 30px 0;
+}
+#breadcrumb ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#breadcrumb ul li {
+	display:block;
+	float:left;
+	padding:0 5px 0 10px;
+	background:transparent url(../images/breadcrumb.gif) no-repeat 0 50%;	
+}
+#breadcrumb ul li a:link,
+#breadcrumb ul li a:visited,
+#breadcrumb ul li a:hover,
+#breadcrumb ul li a:active {
+	text-decoration:none;
+	color:#F26522;
+}
+#breadcrumb ul li a:hover {
+	text-decoration:underline;
+}
+
+/* FOOTER */
+
+#footer {
+	text-align:right;
+	padding:4px 4px 4px 4px;
+}
+#footer ul {
+	list-style:none;
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+}
+#footer ul li {
+	display:block;
+	float:left;
+	margin:0 0 0 0;
+}
+#footer ul li a:link,
+#footer ul li a:visited,
+#footer ul li a:hover,
+#footer ul li a:active {
+	display:block;
+	margin:0 8px 0 0;
+	color:#333333;
+	text-decoration:none;
+}
+
+/* SHARED CLASSES */
+
+.clear {
+	clear:both;
+}
+.clear-hidden {
+	clear:both;
+	font-size:1px;
+	height:1px;
+}

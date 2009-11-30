@@ -1,0 +1,20 @@
+<content type="content">
+	<fields>
+		<field name="Title"></field>
+		<field name="Description"></field>
+		<field name="Keywords"></field>
+		<field name="Content"></field>
+		<field name="Email"></field>
+		<field name="Thank you Content"></field>
+	</fields>
+	<options>
+		<layout>default</layout>
+		<placeholders>
+			<placeholder name="main">
+				<view path="main/title_and_text.php" />
+				<view path="main/contact_form.php" />
+			</placeholder>
+		</placeholders>
+		<active>1</active>
+	</options>
+</content>

@@ -1,0 +1,1 @@
+<? $PAGE->getField("Thank you Content")->render(); ?>

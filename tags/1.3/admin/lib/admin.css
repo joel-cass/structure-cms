@@ -1,0 +1,120 @@
+BODY {
+	font-family: sans-serif;
+	font-size: 0.8em;
+}
+
+FIELDSET {
+	border: none;
+	margin: 0 0 0.7em 0;
+	padding: 0 0 0 0;
+}
+
+LABEL {
+	font-weight: bold;
+	color: #006600;
+	display: block;
+	margin: 0 0 0.1em 0;
+	padding: 0 0 0 0;
+}
+
+/* --IDs */
+
+UL#actions-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+UL#actions-nav LI {
+	list-style: none;
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+UL#actions-nav LI A:link,
+UL#actions-nav LI A:visited,
+UL#actions-nav LI A:hover,
+UL#actions-nav LI A:active {
+	display: block;
+	margin: 0 7px 0 0;
+	padding: 4px;
+	border: 1px outset #666666;
+	background-color: #CCCCCC;
+	text-decoration: none;
+	color: #000000;
+}
+UL#actions-nav LI A:active {
+	background-color: #808080;
+	border: 1px inset #666666;
+}
+
+DIV#logout {
+	position: absolute;
+	background-color: #FFFFFF;
+	bottom: 10px;
+	right: 10px;	
+}
+
+.tree, .tree UL, .tree LI {
+	list-style: none;
+	display: block;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+.tree LI {
+	margin: 0.3em 0 0.3em 0;
+}
+
+.tree UL {
+	margin: 0 0 0 15px;
+}
+
+.tree .open SPAN {
+	background: url(../images/expand15x15.gif) 0 50% no-repeat;
+	padding: 0 0 0 15px;
+}
+
+.tree .open UL {
+	display: block;
+}
+
+.tree .closed SPAN {
+	background: url(../images/collapse15x15.gif) 0 50% no-repeat;
+	padding: 0 0 0 15px;
+}
+
+.tree .closed UL {
+	display: none;
+}
+
+/* --classes */
+
+FIELDSET.invalid {
+	border: 1px solid #FF0000;
+	background-color: #FFAAAA;
+}
+
+.clear-hidden {
+	clear: both;
+	font-size: 1px;
+	height: 1px;
+}
+
+/*  ******* LICENSE ******* 
+ *  
+ *  Copyright 2009 Joel Cass 
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License"); 
+ *  you may not use this file except in compliance with the License. 
+ *  You may obtain a copy of the License at 
+ *  
+ *  	http://www.apache.org/licenses/LICENSE-2.0 
+ *  	
+ *  Unless required by applicable law or agreed to in writing, software 
+ *  distributed under the License is distributed on an "AS IS" BASIS, 
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+ *  See the License for the specific language governing permissions and 
+ *  limitations under the License. 
+ */
+

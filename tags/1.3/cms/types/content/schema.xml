@@ -1,0 +1,28 @@
+<type>
+	<name>Content</name>
+	<fields>
+		<field name="Title">
+			<type>string</type>
+			<description>Title of the page</description>
+		</field>
+		<field name="Description">
+			<type>text</type>
+			<description>Description of page</description>
+		</field>
+		<field name="Keywords">
+			<type>string</type>
+			<description>Keywords for search engines etc</description>
+		</field>
+		<field name="Content">
+			<type>html</type>
+			<description>Content of page</description>
+		</field>
+		<field name="Listing Image">
+			<type>image</type>
+			<description>Image to appear in listing</description>
+			<options>
+				<option name="path">/upload/</option>
+			</options>
+		</field>
+	</fields>
+</type>
