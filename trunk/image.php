@@ -3,6 +3,8 @@ $path = null;
 $width = null;
 $height = null;
 
+require_once "classes/includes/paths.php";
+
 if (array_key_exists("path", $_GET))
 	$path = $_GET["path"];
 if (array_key_exists("w", $_GET) && is_numeric($_GET["w"]))
@@ -12,11 +14,47 @@ if (array_key_exists("h", $_GET) && is_numeric($_GET["h"]))
 
 if ($path == null) {
 	exit();
+} elseif ($width == null && $height == null) {
+	header("location: $path");
+	exit();
 }
 
 $ext = strToLower(preg_replace("/^.*\./","",$path));
 
 $image_path = realpath($path);
+
+$cache_name = "path=".$path.";w=".$width.";h=;".$height;
+$cache_file = md5($cache_name) . "." . $ext;
+$cache_folder_path = getRootPath() . "/" . "_image_cache/";
+$cache_folder_url = getRootURL() . "/" . "_image_cache/";
+$cache_path = $cache_folder_path . $cache_file;
+$cache_url = $cache_folder_url . $cache_file;
+
+if (file_exists($cache_path)) {
+	switch ($ext) {
+		case "gif" :
+			header('Content-type: image/gif');
+			$cache = imageCreateFromGif($cache_path);
+			imageGif($cache);
+			break;
+		case "jpg" :
+			header('Content-type: image/jpeg');
+			$cache = imageCreateFromJpeg($cache_path);
+			imageJpeg($cache);
+			break;
+		case "jpeg" :
+			header('Content-type: image/jpeg');
+			$cache = imageCreateFromJpeg($cache_path);
+			imageJpeg($cache);
+			break;
+		case "png" :
+			header('Content-type: image/png');
+			$cache = imageCreateFromPng($cache_path);
+			imagePng($cache);
+			break;
+	}
+	exit();	
+}
 
 if (!file_exists($image_path)) {
 	//header("location: $path");
@@ -42,7 +80,7 @@ switch ($ext) {
 }
 	
 if ($img == null) {
-	header("location", $path);
+	header("location: $path");
 	exit();
 } else {
 	$orig_width = imageSX($img);
@@ -67,21 +105,29 @@ if ($img == null) {
 	}
 }
 
+if (!file_exists($cache_folder_path)) {
+	mkdir($cache_folder_path);
+} 
+
 switch ($ext) {
 	case "gif" :
 		header('Content-type: image/gif');
+		imageGif($imgNew, $cache_path);
 		imageGif($imgNew);
 		break;
 	case "jpg" :
 		header('Content-type: image/jpeg');
+		imageJpeg($imgNew, $cache_path);
 		imageJpeg($imgNew);
 		break;
 	case "jpeg" :
 		header('Content-type: image/jpeg');
+		imageJpeg($imgNew, $cache_path);
 		imageJpeg($imgNew);
 		break;
 	case "png" :
 		header('Content-type: image/png');
+		imagePng($imgNew, $cache_path);
 		imagePng($imgNew);
 		break;
 }
