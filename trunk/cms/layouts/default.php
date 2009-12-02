@@ -39,6 +39,9 @@
 			</div>
 		</div>
 	</div>
+	<div id="credits">
+		<span>&copy; Created using <a href="http://www.jozza.net/content/home/projects/structure-cms/">StructureCMS</a> 2009</span>
+	</div>
 </body>
 
 </html>

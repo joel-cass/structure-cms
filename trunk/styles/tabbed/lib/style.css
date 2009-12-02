@@ -482,6 +482,14 @@ a:hover {
 	-webkit-border-bottom-left-radius: 5px;
 }
 
+#credits {
+	margin: 0 50px 10px 50px;
+}
+#credits a:link,
+#credits a:visited,
+#credits a:hover,
+#credits a:active { color:#333333; }
+
 /* SHARED CLASSES */
 
 .clear {
