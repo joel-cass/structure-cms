@@ -25,6 +25,9 @@ if ( array_key_exists("move", $_REQUEST) ) {
 
 $strParentID = "node_" . md5("$node");
 
+echo "<!-- Path:\"".$node."\" -->";
+echo "<!-- Children:".count(Page::getPages($node, false))." -->";
+
 if (!isset($_SESSION)) {
 	session_start();
 }
@@ -65,11 +68,15 @@ function showPages($node) {
 		$strName = $aryPages[$i]->getName();
 		$strEntry = $node . "/" . $strName;
 		$strID = "node_" . md5("$strEntry");
+		$numChildren = count(Page::getPages($strEntry, false));
+		//$aryChildren = array();
 		echo "<li class=\"";
 		if (array_key_exists($strEntry, $_SESSION["nodes"]) && $_SESSION["nodes"][$strEntry] == "open") {	
 			echo "open";
-		} else {
+		} elseif ($numChildren > 0) {
 			echo "closed";
+		} else {
+			echo "empty";
 		}
 		echo "\">";
 			echo "<span onmouseup=\"clickNode(this.parentNode, '$strEntry', '#$strID')\"></span>";

@@ -71,7 +71,7 @@ DIV#logout {
 }
 
 .tree .open SPAN {
-	background: url(../images/expand15x15.gif) 0 50% no-repeat;
+	background: url(../images/collapse15x15.gif) 0 50% no-repeat;
 	padding: 0 0 0 15px;
 }
 
@@ -80,11 +80,29 @@ DIV#logout {
 }
 
 .tree .closed SPAN {
-	background: url(../images/collapse15x15.gif) 0 50% no-repeat;
+	background: url(../images/expand15x15.gif) 0 50% no-repeat;
 	padding: 0 0 0 15px;
 }
 
 .tree .closed UL {
+	display: none;
+}
+
+.tree .loading SPAN {
+	background: url(../images/process-working.gif) 0 50% no-repeat;
+	padding: 0 0 0 15px;
+}
+
+.tree .loading UL {
+	display: none;
+}
+
+.tree .empty SPAN {
+	background-image: none;
+	padding: 0 0 0 15px;
+}
+
+.tree .empty UL {
 	display: none;
 }
 

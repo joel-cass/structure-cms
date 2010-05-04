@@ -1,28 +1,38 @@
 // TREE FUNCTIONS
 
-var aryOpen = new Object();
-
-//$(document).ready(function () { treeLoadNode("", "#tree"); });
+var aryElement = new Object();
 
 function clickNode(el, path, domElement) {
-	if (aryOpen[domElement]) {
-		$.get("node-tree.php?ajax=1&close=true&node=" + path, null, tree_loaded)
+	if (el.getAttribute("class") == "open") {
+		$.get("node-tree.php?ajax=1&close=true&node=" + path, null, tree_closed)
 		el.setAttribute("class", "closed");
-		aryOpen[domElement] = false;
 	} else {
-		treeLoadNode(path, domElement);
-		el.setAttribute("class", "open");
-		aryOpen[domElement] = true;
+		$(domElement).load("node-tree.php?ajax=1&node=" + path, null, tree_loaded)
+		el.setAttribute("class", "loading");
 	}
-}
-
-function treeLoadNode(path, domElement) {
-	$(domElement).load("node-tree.php?ajax=1&node=" + path, null, tree_loaded)
+	aryElement[path] = el;
 }
 
 function tree_loaded (obj, status, xml) {
-	// do nothing
-	// dump(xml);
+	var strResult = obj.replace(/(\r\n|\t)+/g,"[CR]");
+	var strPath = strResult.replace(/^.*<!-- Path:\"([^\"]*)\" -->.*$/gim,"$1");
+	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
+	if (aryElement[strPath]) {
+		if (numChildren > 0) {
+			aryElement[strPath].setAttribute("class", "open");
+		} else {
+			aryElement[strPath].setAttribute("class", "empty");
+		}
+	}
+}
+
+function tree_closed (obj, status, xml) { 
+	var strResult = obj.replace(/(\r\n|\t)+/g,"[CR]");
+	var strPath = strResult.replace(/^.*<!-- Path:\"([^\"]*)\" -->.*$/gim,"$1");
+	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
+	if (aryElement[strPath] && numChildren == 0) {
+		aryElement[strPath].setAttribute("class", "empty");
+	}
 }
 
 function moveNode (path, dir, domElement) {
@@ -58,15 +68,19 @@ function contextMenu_select(action, el, pos) {
 
 function dump (o) {
 	var msg = "";
-	for (var p in o) {
-		msg += p;
-		msg += ": ";
-		try {
-			msg += o[p];
-		} catch (e) {
-			msg += "ERROR";
+	if (typeof(o) == "string") {
+		msg = o;
+	} else {
+		for (var p in o) {
+			msg += p;
+			msg += ": ";
+			try {
+				msg += o[p];
+			} catch (e) {
+				msg += "ERROR";
+			}
+			msg += "\n"; 
 		}
-		msg += "\n"; 
 	}
 	alert(msg);
 }
