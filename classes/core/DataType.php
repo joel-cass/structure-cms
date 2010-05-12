@@ -9,7 +9,7 @@ class DataType {
 	
 	// show input field for display in form
 	public function edit ($name, $id, $value) {
-		return "<input type=\"text\" name=\"$name\" id=\"$id\" value=\"$value\">";
+		return "<input type=\"text\" class=\"text\" name=\"$name\" id=\"$id\" value=\"$value\">";
 	}
 	
 	// show value for display.use in site

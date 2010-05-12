@@ -4,7 +4,7 @@ require_once getRootPath() . "/classes/core/DataType.php";
 class type_file extends DataType {
 	
 	public function edit ($name, $id, $value) {
-		$strReturn = "<input type=\"file\" name=\"$name\" id=\"$name\">";
+		$strReturn = "<input type=\"file\" class=\"file\" name=\"$name\" id=\"$name\">";
 		if ($value != "") {
 			$href = $this->render($value, $this->options);
 			$strReturn .= " (Currently <a href=\"$href\">$href</a>)";

@@ -3,12 +3,15 @@
 var aryElement = new Object();
 
 function clickNode(el, path, domElement) {
-	if (el.getAttribute("class") == "open") {
+	//if (el.getAttribute("class") == "open") {
+	if (el.className == "open") {
 		$.get("node-tree.php?ajax=1&close=true&node=" + path, null, tree_closed)
-		el.setAttribute("class", "closed");
+		//el.setAttribute("class", "closed");
+		el.className = "closed";
 	} else {
 		$(domElement).load("node-tree.php?ajax=1&node=" + path, null, tree_loaded)
-		el.setAttribute("class", "loading");
+		//el.setAttribute("class", "loading");
+		el.className = "loading";
 	}
 	aryElement[path] = el;
 }
@@ -19,9 +22,11 @@ function tree_loaded (obj, status, xml) {
 	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
 	if (aryElement[strPath]) {
 		if (numChildren > 0) {
-			aryElement[strPath].setAttribute("class", "open");
+			//aryElement[strPath].setAttribute("class", "open");
+			aryElement[strPath].className = "open";
 		} else {
-			aryElement[strPath].setAttribute("class", "empty");
+			//aryElement[strPath].setAttribute("class", "empty");
+			aryElement[strPath].className = "empty";
 		}
 	}
 }
@@ -31,7 +36,8 @@ function tree_closed (obj, status, xml) {
 	var strPath = strResult.replace(/^.*<!-- Path:\"([^\"]*)\" -->.*$/gim,"$1");
 	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
 	if (aryElement[strPath] && numChildren == 0) {
-		aryElement[strPath].setAttribute("class", "empty");
+		//aryElement[strPath].setAttribute("class", "empty");
+		aryElement[strPath].className = "empty";
 	}
 }
 

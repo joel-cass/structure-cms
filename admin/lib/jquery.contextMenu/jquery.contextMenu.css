@@ -54,9 +54,9 @@
 	classes to the respective LI element(s)
 */
 
-.contextMenu LI.edit A { background-image: url(images/page_white_edit.png); }
-.contextMenu LI.layout A { background-image: url(images/page_white_gear.png); }
-.contextMenu LI.create A { background-image: url(images/page_white_add.png); }
-.contextMenu LI.delete A { background-image: url(images/page_white_delete.png); }
+.contextMenu LI.edit A { background-image: url(../../images/page-edit.png); }
+.contextMenu LI.layout A { background-image: url(../../images/page-layout.png); }
+.contextMenu LI.create A { background-image: url(../../images/page-new.png); }
+.contextMenu LI.delete A { background-image: url(../../images/page-delete.png); }
 .contextMenu LI.up A { background-image: url(images/bullet_arrow_up.png); }
 .contextMenu LI.down A { background-image: url(images/bullet_arrow_down.png); }

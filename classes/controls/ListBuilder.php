@@ -55,11 +55,13 @@ class ListBuilder {
 			</script>
 			<style type="text/css">
 			.list-builder img {
-				padding: 5px 5px;
+				display:block;
+				padding:0;
+				margin:5px;
 			}
 			.list-builder select {
-				width: 200px;
-				height: 250px;
+				width:200px;
+				height:250px;
 			}
 			
 			.list-builder div {
@@ -72,27 +74,35 @@ class ListBuilder {
 	public static function render ($strField, array $aryAvailable, array $arySelected) {
 		?>
 			<div class="list-builder">
-				<div>
-					<a href="#" onclick="moveUp('<?php echo $strField; ?>');return false;"><img src="images/go-up.png" width="16" height="16" border="0" alt="Move Up"></a><br>
-					<a href="#" onclick="moveDown('<?php echo $strField; ?>');return false;"><img src="images/go-down.png" width="16" height="16" border="0" alt="Move Down"></a><br>
+				<div class="left-panel">
+					<label for="<?php echo $strField; ?>">Selected Views</label>
+					<div>
+						<a href="#" onclick="moveUp('<?php echo $strField; ?>');return false;"><img src="images/go-up.png" width="16" height="16" border="0" alt="Move Up"></a>
+						<a href="#" onclick="moveDown('<?php echo $strField; ?>');return false;"><img src="images/go-down.png" width="16" height="16" border="0" alt="Move Down"></a><br>
+					</div>
+					<div>
+						<select name="<?php echo $strField; ?>[]" id="<?php echo $strField; ?>" multiple class="list-builder">
+							<?php foreach ($arySelected as $option) { 
+								echo("<option value=\"$option\" selected>$option</option>");
+							} ?>
+						</select>
+						<input type="hidden" name="<?php echo $strField; ?>[]" value="">
+					</div>
 				</div>
-				<div>
-					<select name="<?php echo $strField; ?>[]" id="<?php echo $strField; ?>" multiple class="list-builder">
-						<?php foreach ($arySelected as $option) { 
-							echo("<option value=\"$option\" selected>$option</option>");
-						} ?>
-					</select>
-				</div>
-				<div>
-					<a href="#" onclick="del('<?php echo $strField; ?>');return false;"><img src="images/go-next.png" width="16" height="16" border="0" alt="Remove"></a><br>
-					<a href="#" onclick="copy('<?php echo $strField; ?>_available', '<?php echo $strField; ?>');return false;"><img src="images/go-previous.png" width="16" height="16" border="0" alt="Add"></a><br>
-				</div>
-				<div>
-					<select name="<?php echo $strField; ?>_available[]" id="<?php echo $strField; ?>_available" multiple class="list-builder">
-						<?php foreach ($aryAvailable as $option) { 
-							echo("<option value=\"$option\">$option</option>");
-						} ?>
-					</select>
+				<div class="right-panel">
+					<label for="<?php echo $strField; ?>_available">Available Views</label>
+					<div>
+						<a href="#" onclick="del('<?php echo $strField; ?>');return false;"><img src="images/go-next.png" width="16" height="16" border="0" alt="Remove"></a>
+						<a href="#" onclick="copy('<?php echo $strField; ?>_available', '<?php echo $strField; ?>');return false;"><img src="images/go-previous.png" width="16" height="16" border="0" alt="Add"></a><br>
+					</div>
+					<div>
+						<select name="<?php echo $strField; ?>_available[]" id="<?php echo $strField; ?>_available" multiple class="list-builder">
+							<?php foreach ($aryAvailable as $option) { 
+								echo("<option value=\"$option\">$option</option>");
+							} ?>
+						</select>
+						<input type="hidden" name="<?php echo $strField; ?>_available[]" value="">
+					</div>
 				</div>
 			</div>
 			<script type="text/javascript">
