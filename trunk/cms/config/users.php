@@ -6,7 +6,7 @@ $aryUsers = array();
 // e.g. $aryUsers[] = array("username", "password");
 // passwords are encrypted using lowercase md5 hash, e.g.
 // hash("md5", strtolower($password))
-$aryUsers[] = array("admin", "098f6bcd4621d373cade4e832627b4f6");
+$aryUsers[] = array("admin", "5f4dcc3b5aa765d61d8327deb882cf99");
 
 
 /*  ******* LICENSE ******* 

@@ -3,54 +3,133 @@ BODY {
 	font-size: 0.8em;
 }
 
-FIELDSET {
-	border: none;
-	margin: 0 0 0.7em 0;
-	padding: 0 0 0 0;
+/* --FORM */
+
+FORM.edit H2 {
+	background: transparent url(../images/page.png) 2px 50% no-repeat;
+	padding:4px 4px 4px 20px;
+	font-size:1.3em;
+	border-bottom:1px solid #666666;
+	margin:0;
+	background-color:#EAEAEA;
 }
 
-LABEL {
-	font-weight: bold;
-	color: #006600;
-	display: block;
-	margin: 0 0 0.1em 0;
-	padding: 0 0 0 0;
+FORM.edit H3 {
+	color:#FFFFFF;
+	background:#666666 url(../images/gradient-dark.gif) 0 0 repeat-x;
+	border:1px outset #C0C0C0;
+	font-size:1.1em;
+	padding:0;
+	margin:0;
+}
+FORM.edit H3 A {
+	text-decoration:none;
+	color:#FFFFFF;
+	padding:4px 4px 4px 22px;
+	display:block;
+}
+
+FORM.edit H3 A.open {
+	background: transparent url(../images/collapse15x15.gif) 4px 50% no-repeat;
+}
+
+FORM.edit H3 A.closed {
+	background: transparent url(../images/expand15x15.gif) 4px 50% no-repeat;
+}
+
+FORM.edit FIELDSET {
+	border:none;
+	border-top:1px solid #CCCCCC;
+	background:#B2B2B2 url(../images/gradient-light.gif) 0 0 repeat-x;
+	margin:0;
+	padding:2px;
+}
+
+FORM.edit LABEL {
+	font-weight:bold;
+	display:block;
+	width:19%;
+	float:left;
+	margin:0;
+}
+
+FORM.edit .field-container {
+	width:80%;
+	float:right;
+}
+FORM.edit INPUT.text {
+	width:100%;
+}
+FORM.edit INPUT.file {
+	width:100%;
+}
+FORM.edit TEXTAREA {
+	width:100%;
+	font-family:sans-serif;
+	font-size:1em;
+}
+FORM.edit SELECT {
+	width:100%;
+}
+
+FORM.edit .list-builder img {
+	display:block;
+	padding:0;
+	margin:5px;
+	width:16px;
+}
+FORM.edit .list-builder select {
+	width:200px;
+	height:250px;
+}
+FORM.edit .list-builder label {
+	padding-left:26px;
+	width:200px;
+	float:none;	
+}
+FORM.edit .list-builder div {
+	float:left;
 }
 
 /* --IDs */
 
 UL#actions-nav {
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	background:#EAEAEA url(../images/gradient-light-short.gif) 0 0 repeat-x;
+	height:28px;
+	margin:0 0 0 0;
+	padding:0;
 }
 UL#actions-nav LI {
-	list-style: none;
-	display: block;
-	float: left;
-	margin: 0;
-	padding: 0;
+	list-style:none;
+	display:block;
+	float:left;
+	border-right: 1px solid #C0C0C0;
+	margin:0;
+	padding:0;
 }
+* html UL#actions-nav LI { width:1%; white-space:nowrap; }
+
 UL#actions-nav LI A:link,
 UL#actions-nav LI A:visited,
 UL#actions-nav LI A:hover,
 UL#actions-nav LI A:active {
 	display: block;
-	margin: 0 7px 0 0;
-	padding: 4px;
-	border: 1px outset #666666;
-	background-color: #CCCCCC;
+	margin:0 0 0 0;
+	padding:5px;
+	height:18px;
 	text-decoration: none;
 	color: #000000;
 }
-UL#actions-nav LI A:active {
-	background-color: #808080;
-	border: 1px inset #666666;
+UL#actions-nav LI A:hover {
+	background:#EAEAEA url(../images/gradient-light-short.gif) 0 -10px repeat-x;
 }
+
 
 DIV#logout {
 	position: absolute;
 	background-color: #FFFFFF;
+	padding:6px;
 	bottom: 10px;
 	right: 10px;	
 }
@@ -62,44 +141,62 @@ DIV#logout {
 	padding: 0 0 0 0;
 }
 
+.side-pane {
+	background:#B2B2B2 url(../images/gradient-light.gif) 0 -10px repeat-x;
+}
+
 .tree LI {
 	margin: 0.3em 0 0.3em 0;
 }
 
-.tree UL {
+.tree LI A:link,
+.tree LI A:visited,
+.tree LI A:hover,
+.tree LI A:active {
+	color:#000000;
+	text-decoration:none;
+}
+
+.tree UL UL {
 	margin: 0 0 0 15px;
 }
 
-.tree .open SPAN {
-	background: url(../images/collapse15x15.gif) 0 50% no-repeat;
-	padding: 0 0 0 15px;
+/*.tree .open {    background-color:#AAFFAA; }
+.tree .closed {  background-color:#FFAAAA; }
+.tree .loading { background-color:#AAAAFF; }
+.tree .empty {   background-color:#FFFFAA; }*/
+
+.tree A.node {
+	padding: 0 5px 0 5px;
+	text-decoration:none;
+}
+
+.tree .open A.node {
+	background: transparent url(../images/collapse15x15.gif) 0 50% no-repeat;
 }
 
 .tree .open UL {
 	display: block;
 }
 
-.tree .closed SPAN {
-	background: url(../images/expand15x15.gif) 0 50% no-repeat;
-	padding: 0 0 0 15px;
+.tree .closed A.node {
+	background: transparent url(../images/expand15x15.gif) 0 50% no-repeat;
 }
 
 .tree .closed UL {
 	display: none;
 }
 
-.tree .loading SPAN {
-	background: url(../images/process-working.gif) 0 50% no-repeat;
-	padding: 0 0 0 15px;
+.tree .loading A.node {
+	background: transparent url(../images/process-working.gif) 0 50% no-repeat;
 }
 
 .tree .loading UL {
 	display: none;
 }
 
-.tree .empty SPAN {
+.tree .empty A.node {
 	background-image: none;
-	padding: 0 0 0 15px;
 }
 
 .tree .empty UL {
@@ -113,6 +210,9 @@ FIELDSET.invalid {
 	background-color: #FFAAAA;
 }
 
+.clear {
+	clear: both;
+}
 .clear-hidden {
 	clear: both;
 	font-size: 1px;

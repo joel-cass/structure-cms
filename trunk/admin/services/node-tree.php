@@ -43,17 +43,18 @@ if (array_key_exists("close", $_GET)) {
 
 if ( $blnAjax ) {
 	?>
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<html>
 	<head>
 		<title>Tree</title>
-		<link href="../lib/admin.css" rel="STYLESHEET" type="text/css" />
-		<link href="../lib/jquery.contextMenu/jquery.contextMenu.css" rel="STYLESHEET" type="text/css" />
+		<link href="../lib/admin.css" rel="STYLESHEET" type="text/css">
+		<link href="../lib/jquery.contextMenu/jquery.contextMenu.css" rel="STYLESHEET" type="text/css">
 		<script src="../lib/admin.js" type="text/javascript"></script>
 		<script src="../lib/jquery-1.3.1.min.js" type="text/javascript"></script>
 		<script src="../lib/jquery.contextMenu/jquery.contextMenu.js" type="text/javascript"></script>
 		<script src="../lib/node-tree.js" type="text/javascript"></script>
 	</head>
-	<body>
+	<body class="side-pane">
 	<ul class="tree">
 		<li>
 			<a href="#" id="lnkRoot">[root]</a>
@@ -79,8 +80,8 @@ function showPages($node) {
 			echo "empty";
 		}
 		echo "\">";
-			echo "<span onmouseup=\"clickNode(this.parentNode, '$strEntry', '#$strID')\"></span>";
-				echo "<a class=\"node\" href=\"../node-edit.php?node=$strEntry\" target=\"main\" rel=\"$strEntry\">$strName</a>";
+			echo "<a href=\"#\" class=\"node\" onclick=\"clickNode(this.parentNode, '$strEntry', '#$strID');return false;\">&nbsp;</a>";
+				echo "<a href=\"../node-edit.php?node=$strEntry\" target=\"main\" rel=\"$strEntry\">$strName</a>";
 			echo "<ul id=\"$strID\" REL=\"$strEntry\">";
 				if (array_key_exists($strEntry, $_SESSION["nodes"]) && $_SESSION["nodes"][$strEntry] == "open") {
 					showPages($strEntry);
@@ -121,7 +122,7 @@ if ( $blnAjax ) {
 	        <a href="#create">Create</a>
 	    </li>
 	</ul>
-	<script language="Javascript">
+	<script type="text/javascript">
 	<!-- 
 	$(document).ready( function() {
 		// set default on body
@@ -138,14 +139,17 @@ if ( $blnAjax ) {
 	// -->
 	</script>
 	<div id="logout">
-		<a href="../logout.php" target="_parent">Logout</a>
+		<a href="../logout.php" target="_parent">
+			<img src="../images/logout.png" alt="Logout" width="16" height="16" border="0" align="left">
+			Logout
+		</a>
 	</div>
 	</body>
 	</html>
 	<?php
 } else {
 	?>
-	<script language="Javascript">
+	<script type="text/javascript">
 	<!-- 
 		// this assumes that the document is now loaded
 		$("#<?php echo $strParentID;?> A").contextMenu(

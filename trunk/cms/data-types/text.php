@@ -4,7 +4,7 @@ require_once getRootPath() . "/classes/core/DataType.php";
 class type_text extends DataType {	
 
 	public function edit ($name, $id, $value) {
-		$strReturn = "<textarea name=\"$name\" id=\"$id\">$value</textarea>";
+		$strReturn = "<textarea name=\"$name\" id=\"$id\" rows=\"6\" cols=\"60\">$value</textarea>";
 		return $strReturn;
 	}
 	

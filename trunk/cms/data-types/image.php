@@ -4,7 +4,7 @@ require_once getRootPath() . "/classes/core/DataType.php";
 class type_image extends DataType {
 	
 	public function edit ($name, $id, $value) {
-		$strReturn = "<input type=\"file\" name=\"$name\" id=\"$id\">";
+		$strReturn = "<input type=\"file\" class=\"file\" name=\"$name\" id=\"$id\">";
 		if ($value != "") {
 			$href = $this->render($value, $this->options);
 			// get image info

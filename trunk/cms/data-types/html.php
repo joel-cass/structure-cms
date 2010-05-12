@@ -7,7 +7,7 @@ class type_html extends DataType {
 	public function edit ($name, $id, $value) {
 		$value = htmlentities($value);
 		$strReturn = "<!-- TINYMCE -->";
-		$strReturn .= "<textarea name=\"$name\" id=\"$id\" rows=\"15\" cols=\"80\" style=\"width: 100%\">$value</textarea>";
+		$strReturn .= "<textarea name=\"$name\" id=\"$id\" rows=\"30\" cols=\"80\" style=\"width: 100%\">$value</textarea>";
 		$strReturn .= "<script type=\"text/javascript\">
 				tinyMCE.init({
 					// General options
