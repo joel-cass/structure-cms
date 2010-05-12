@@ -10,10 +10,13 @@
 	<script type="text/javascript" src="../../utils/editable_selects.js"></script>
 	<link href="css/media.css" rel="stylesheet" type="text/css" />
 	<!-- upload modifications -->
-	<script type="text/javascript" src="../../../swfupload/swfupload.js"></script>
-	<script type="text/javascript" src="../../../../session_js.php"></script>
-	<script type="text/javascript" src="js/upload.js"></script>
-	<link href="css/upload.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function uploadComplete (name, path) {
+		document.getElementById("src").value = path;
+		switchType(path);
+		generatePreview();
+	}; 
+	</script>
 	<!-- end upload modifications -->
 </head>
 <body style="display: none">
@@ -58,14 +61,7 @@
 							<!-- upload modifications -->
 							<tr>
 							  <td><label for="swfupload">{#media_dlg.upload}</label></td>
-							  <td>
-									<table border="0" cellspacing="0" cellpadding="0">
-									  <tr>
-										<td><div id="swfupload">Error</div></td>
-										<td><div id="swfupload_file" class="progressbar"><div class="bar" id="swfupload_file_bar"></div><div class="name" id="swfupload_file_name"></div></div></td>
-									  </tr>
-									</table>
-								</td>
+	  						  <td><iframe src="../../../../upload-file.php?type=media" width="320" height="23" frameborder="0" scrolling="no"></iframe></td>
 							</tr>
 							<!-- end upload modifications -->
 							<tr id="linklistrow">
