@@ -3,92 +3,18 @@ BODY {
 	font-size: 0.8em;
 }
 
-/* --FORM */
-
-FORM.edit H2 {
-	background: transparent url(../images/page.png) 2px 50% no-repeat;
-	padding:4px 4px 4px 20px;
-	font-size:1.3em;
-	border-bottom:1px solid #666666;
-	margin:0;
-	background-color:#EAEAEA;
+FIELDSET {
+	border: none;
+	margin: 0 0 0.7em 0;
+	padding: 0 0 0 0;
 }
 
-FORM.edit H3 {
-	color:#FFFFFF;
-	background:#666666 url(../images/gradient-dark.gif) 0 0 repeat-x;
-	border:1px outset #C0C0C0;
-	font-size:1.1em;
-	padding:0;
-	margin:0;
-}
-FORM.edit H3 A {
-	text-decoration:none;
-	color:#FFFFFF;
-	padding:4px 4px 4px 22px;
-	display:block;
-}
-
-FORM.edit H3 A.open {
-	background: transparent url(../images/collapse15x15.gif) 4px 50% no-repeat;
-}
-
-FORM.edit H3 A.closed {
-	background: transparent url(../images/expand15x15.gif) 4px 50% no-repeat;
-}
-
-FORM.edit FIELDSET {
-	border:none;
-	border-top:1px solid #CCCCCC;
-	background:#B2B2B2 url(../images/gradient-light.gif) 0 0 repeat-x;
-	margin:0;
-	padding:2px;
-}
-
-FORM.edit LABEL {
-	font-weight:bold;
-	display:block;
-	width:19%;
-	float:left;
-	margin:0;
-}
-
-FORM.edit .field-container {
-	width:80%;
-	float:right;
-}
-FORM.edit INPUT.text {
-	width:100%;
-}
-FORM.edit INPUT.file {
-	width:100%;
-}
-FORM.edit TEXTAREA {
-	width:100%;
-	font-family:sans-serif;
-	font-size:1em;
-}
-FORM.edit SELECT {
-	width:100%;
-}
-
-FORM.edit .list-builder img {
-	display:block;
-	padding:0;
-	margin:5px;
-	width:16px;
-}
-FORM.edit .list-builder select {
-	width:200px;
-	height:250px;
-}
-FORM.edit .list-builder label {
-	padding-left:26px;
-	width:200px;
-	float:none;	
-}
-FORM.edit .list-builder div {
-	float:left;
+LABEL {
+	font-weight: bold;
+	color: #006600;
+	display: block;
+	margin: 0 0 0.1em 0;
+	padding: 0 0 0 0;
 }
 
 /* --IDs */
@@ -132,6 +58,95 @@ DIV#logout {
 	padding:6px;
 	bottom: 10px;
 	right: 10px;	
+}
+
+/* --Classes */
+
+FORM.edit H2 {
+	background: transparent url(../images/page.png) 2px 50% no-repeat;
+	padding:4px 4px 4px 20px;
+	font-size:1.3em;
+	border-bottom:1px solid #666666;
+	margin:0;
+	background-color:#EAEAEA;
+}
+
+FORM.edit H3 {
+	color:#FFFFFF;
+	background:#666666 url(../images/gradient-dark.gif) 0 0 repeat-x;
+	border:1px outset #C0C0C0;
+	font-size:1.1em;
+	padding:0;
+	margin:0;
+}
+FORM.edit H3 A {
+	text-decoration:none;
+	color:#FFFFFF;
+	padding:4px 4px 4px 22px;
+	display:block;
+}
+
+FORM.edit H3 A.open {
+	background: transparent url(../images/collapse15x15.gif) 4px 50% no-repeat;
+}
+
+FORM.edit H3 A.closed {
+	background: transparent url(../images/expand15x15.gif) 4px 50% no-repeat;
+}
+
+FORM.edit FIELDSET {
+	border:none;
+	border-top:1px solid #CCCCCC;
+	background:#B2B2B2 url(../images/gradient-light.gif) 0 0 repeat-x;
+	margin:0;
+	padding:2px;
+}
+
+FORM.edit LABEL {
+	font-weight:bold;
+	color:#000000;
+	display:block;
+	width:19%;
+	float:left;
+	margin:0;
+}
+
+FORM.edit .field-container {
+	width:80%;
+	float:right;
+}
+FORM.edit INPUT.text {
+	width:100%;
+}
+FORM.edit INPUT.file {
+	width:100%;
+}
+FORM.edit TEXTAREA {
+	width:100%;
+	font-family:sans-serif;
+	font-size:1em;
+}
+FORM.edit SELECT {
+	width:100%;
+}
+
+FORM.edit .list-builder img {
+	display:block;
+	padding:0;
+	margin:5px;
+	width:16px;
+}
+FORM.edit .list-builder select {
+	width:200px;
+	height:250px;
+}
+FORM.edit .list-builder label {
+	padding-left:26px;
+	width:200px;
+	float:none;	
+}
+FORM.edit .list-builder div {
+	float:left;
 }
 
 .tree, .tree UL, .tree LI {

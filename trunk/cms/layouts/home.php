@@ -30,13 +30,10 @@
 			</div>
 			<div id="footer">
 				<?php include "includes/footer.php" ?>
-				&copy; 2009 Joel Cass
+				<a href="http://www.jozza.net/content/home/projects/structure-cms/"><img src="<?php getPath("")?>/structurecms-logo.gif" border="0" alt="&copy; Created using StructureCMS" title="&copy; Created using StructureCMS"></a>
 				<div class="clear-hidden"></div>
 			</div>
 		</div>
-	</div>
-	<div id="credits">
-		<span>&copy; Created using <a href="http://www.jozza.net/content/home/projects/structure-cms/">StructureCMS</a> 2009</span>
 	</div>
 </body>
 
