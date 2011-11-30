@@ -17,7 +17,7 @@ function clickNode(el, path, domElement) {
 }
 
 function tree_loaded (obj, status, xml) {
-	var strResult = obj.replace(/(\r\n|\t)+/g,"[CR]");
+	var strResult = obj.replace(/(\r|\n|\t)+/g,"");
 	var strPath = strResult.replace(/^.*<!-- Path:\"([^\"]*)\" -->.*$/gim,"$1");
 	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
 	if (aryElement[strPath]) {
@@ -32,7 +32,7 @@ function tree_loaded (obj, status, xml) {
 }
 
 function tree_closed (obj, status, xml) { 
-	var strResult = obj.replace(/(\r\n|\t)+/g,"[CR]");
+	var strResult = obj.replace(/(\r|\n|\t)+/g,"");
 	var strPath = strResult.replace(/^.*<!-- Path:\"([^\"]*)\" -->.*$/gim,"$1");
 	var numChildren = strResult.replace(/^.*<!-- Children:([0-9]*) -->.*$/gim,"$1");
 	if (aryElement[strPath] && numChildren == 0) {

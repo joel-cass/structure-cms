@@ -28,6 +28,10 @@ $strParentID = "node_" . md5("$node");
 if (!isset($_SESSION)) {
 	session_start();
 }
+
+echo "<!-- Path:\"".$node."\" -->";
+echo "<!-- Children:".count(Page::getPages($node, false))." -->";
+
 if (!array_key_exists("nodes", $_SESSION)) {
 	$_SESSION["nodes"] = array();
 }
@@ -37,9 +41,6 @@ if (array_key_exists("close", $_GET)) {
 } else {
 	$_SESSION["nodes"][$node] = "open";
 }
-
-echo "<!-- Path:\"".$node."\" -->";
-echo "<!-- Children:".count(Page::getPages($node, false))." -->";
 
 if ( $blnAjax ) {
 	?>
