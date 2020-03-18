@@ -43,7 +43,7 @@ function listDeleteAt ($list, $index, $delim = ",") {
 	return $newList;
 }
 function listGetAt($list, $index, $delim = ",") {
-	$arrList = split($delim, $list);
+	$arrList = explode($delim, $list);
 	foreach ($arrList as $i => $v) {
 		if ($i == ($index-1)) {
 			return $v;
@@ -52,11 +52,11 @@ function listGetAt($list, $index, $delim = ",") {
 	return "";
 }
 function listLast($list, $delim = ",") {
-	$arrList = split($delim, $list);
+	$arrList = explode($delim, $list);
 	return $arrList[count($arrList)-1];
 }
 function listLeft($list, $index, $delim = ",") {
-	$arrList = split($delim, $list);
+	$arrList = explode($delim, $list);
 	$strNew = "";
 	foreach ($arrList as $i => $v) {
 		if (i <= ($index-1)) {

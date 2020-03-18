@@ -39,9 +39,9 @@ function getRootURL() {
 			// method 2 - folder is mapped
 			$strScriptName = preg_replace("/[\/]{2,}/", "/", $_SERVER["SCRIPT_NAME"]);
 			$strScriptFileName = preg_replace("/[\/]{2,}/", "/", $_SERVER["SCRIPT_FILENAME"]);
-			$aryScriptName = array_reverse( split("[\\/]", $strScriptName) );
-			$aryScriptFileName = array_reverse( split("[\\/]", $strScriptFileName) );
-			$aryAppRoot = split("[\\/]", $strAppRoot);
+			$aryScriptName = array_reverse( explode("[\\/]", $strScriptName) );
+			$aryScriptFileName = array_reverse( explode("[\\/]", $strScriptFileName) );
+			$aryAppRoot = explode("[\\/]", $strAppRoot);
 			for ($i = 0; $i < count($aryScriptName); $i++) {
 				// if folder name deviates, the last folder must have been the root.
 				if ($aryScriptName[$i] != $aryScriptFileName[$i]) {

@@ -29,7 +29,7 @@ if (array_key_exists($strFieldName, $_FILES) && $_FILES[$strFieldName] != null &
 		
 		// make directory if it doesn't exist
 		if (!file_exists($strDest)) {
-			$aryDir = split("/",$strDest);
+			$aryDir = explode("/",$strDest);
 			$strTmp  = "";
 			for ($i = 0; $i < count($aryDir); $i++) {
 				$strTmp = $strTmp . $aryDir[$i] . "/";
